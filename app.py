@@ -37,6 +37,17 @@ def index():
         save_db(lp_num, ident.upper(), city.upper())
     return render_template('index.html', all_lps=read_db())
 
+# Register
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
+
+# Login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
+
+
 @app.route('/del/<string:id>', methods=['GET', 'POST'])
 def del_lp(id):
     all_lps=read_db()
