@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/material-icons.css') }}" media="screen,projection" />
+        
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection"/>
+        <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Loginr</title>
+    </head>
+
+
+    <body class="grey lighten-4 grey-text text-darken-4 z-depth-0">            
+        <nav>
+            <div class="nav-wrapper teal">
+                <!-- <div class="container"> -->
+                <a href="/" class="brand-logo center"><strong>Home</strong></a>
+                <ul id="nav-mobile" class="right">
+                    <li>
+                    <a href="register">Register</a>
+                    </li>
+                </ul>
+
+                <ul id="nav-mobile" class="left">
+                    <li>
+                    <!-- <a class="modal-trigger" href="#modal1">Bin Status</a> -->
+                    </li>
+                </ul>
+                
+                <!-- </div> -->
+            </div>
+        </nav>
+            <br>
+            <br>
+            <div class="container">
+                    <div class="card-panel" style="padding-left: 5%; padding-right: 5%; margin-left: auto; margin-right: auto;">
+                            <h3 class="center">Login</h3>
+                            <form method="POST" enctype = "multipart/form-data">
+                                <br>
+                                <!-- Email -->
+                                <div class="row">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">email</i>
+                                            <input id="user_email" type="email" name="user_email" required>
+                                            <label for="user_email">Email</label>
+                                        </div>
+                                </div>
+        
+                                
+                                <!-- Password -->
+                                <div class="row">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">https</i>
+                                            <input id="user_password" type="password" name="user_password" required>
+                                            <label for="user_password">Password</label>
+                                        </div>
+                                </div>
+    
+                                <!-- Profile Picture -->
+                                <!-- <div class="row">
+                                    <div class="file-field input-field">
+                                        <i class="material-icons prefix">cloud_upload</i>
+                                        <div>
+                                            <input type="file" accept="image/png, image/jpeg"  name="file">
+                                        </div>
+                                        <div class="file-path-wrapper" style="padding-left:45px;">
+                                            <input class="file-path validate" type="text" placeholder="Upload Profile Picture">
+                                        </div>
+                                    </div>
+                                </div> -->
+        
+                                <!-- Submit -->
+                                <div class="row">
+                                    <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">Login
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </form>    
+                    </div>
+               </div>
+
+        <div style="padding:500px;"></div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-3.2.1.min.js') }}"></script>
+    <!-- Materialize -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            // INIT SELECT LIST
+            $('select').material_select();
+            // Init Side nav
+            $('.button-collapse').sideNav();
+            // Init Scrollspy
+            $('.scrollspy').scrollSpy();
+
+        });
+    </script>
+
+    {% if msg != '' %}
+    <script>
+        Materialize.toast('{{ msg }}', 8000, 'rounded');
+    </script>
+    {% endif %}
+    </body>
+</html>
