@@ -17,18 +17,57 @@ mysql = MySQL(app)
 
 
 
+# Check if user logged in
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('Unauthorized, Please login', 'danger')
+            return redirect(url_for('login'))
+    return wrap
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
+
+# Register Form Class
+class RegisterForm(Form):
+    email = StringField('Email', [validators.Length(min=1, max=50)])
+    password = PasswordField('Password', [
+        validators.DataRequired(),
+        validators.EqualTo('confirm', message='Passwords do not match')
+    ])
+    confirm = PasswordField('Confirm Password')
+
+
 # Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
-        email = request.form.get('user_email')
-        psw = request.form.get('user_password')
-        print(email, psw)
-        return render_template('register.html')
+    form = RegisterForm(request.form)
+    print(form)
+    if request.method == 'POST' and form.validate():
+        email = form.email.data
+        password = sha256_crypt.encrypt(str(form.password.data))
+        print(email, password)
+        # Create cursor
+        cur = mysql.connection.cursor()
+
+        # Execute query
+        cur.execute("INSERT INTO USERS(email, password) VALUES(%s, %s)", (email, password))
+
+        # Commit to DB
+        mysql.connection.commit()
+
+        # Close connection
+        cur.close()
+
+        flash('You are now registered and can log in', 'success')
+
+        return redirect(url_for('login'))
     return render_template('register.html')
 
 # Login
