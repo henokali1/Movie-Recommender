@@ -1,11 +1,20 @@
-from flask import Flask, render_template, redirect, url_for, session, request, logging, json
-
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask_mysqldb import MySQL
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from passlib.hash import sha256_crypt
+from functools import wraps
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-app.config['DEBUG'] = True
 
-#turn the flask app into a socketio app
+# Config MySQL
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'waleflask'
+app.config['MYSQL_DB'] = 'movie_rec'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# init MYSQL
+mysql = MySQL(app)
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -35,5 +44,5 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-    #app.run()
+    # app.run(host='0.0.0.0')
+    app.run()
