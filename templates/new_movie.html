@@ -39,61 +39,85 @@
                             <!-- Movie Title -->
                             <div class="row">
                                     <div class="input-field">
+                                            <i class="material-icons prefix">title</i>
                                         <input id="movie_title" type="text" name="movie_title" required>
                                         <label for="movie_title">Title</label>
                                     </div>
                             </div>
     
-                            
-                            <!-- Genre -->
                             <div class="row">
-                                    <div class="input-field">
-                                        <input id="genre" type="text" name="genre" required>
-                                        <label for="genre">Genre</label>
-                                    </div>
-                            </div>
+                                <div class="col s12 m4">
+                                        <!-- Genre -->
+                                        <div class="row">
+                                                <div class="input-field">
+                                                    <i class="material-icons prefix">merge_type</i>
+                                                    <input id="genre" type="text" name="genre" required>
+                                                    <label for="genre">Genre</label>
+                                                </div>
+                                        </div>
+                                </div>
 
-                            <!-- Release Year -->
-                            <div class="row">
-                                    <div class="input-field">
-                                        <input id="release_year" type="number" name="release_year" required>
-                                        <label for="release_year">Release Year</label>
-                                    </div>
+                                <div class="col s12 m4">
+                                        <!-- Release Year -->
+                                        <div class="row">
+                                                <div class="input-field">
+                                                    <i class="material-icons prefix">date_range</i>
+                                                    <input id="release_year" type="number" name="release_year" required>
+                                                    <label for="release_year">Release Year</label>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="col s12 m4">
+
+                                        <!-- Rating -->
+                                        <div class="row">
+                                                <div class="input-field">
+                                                    <i class="material-icons prefix">star</i>
+                                                    <input id="rating" type="number" name="rating" required>
+                                                    <label for="rating">Rating</label>
+                                                </div>
+                                        </div>
+                                </div>
                             </div>
 
                             <!-- Description -->
                             <div class="row">
                                     <div class="input-field">
+                                        <i class="material-icons prefix">details</i>
                                         <textarea id="description" class="materialize-textarea"></textarea>
                                         <label for="description">Description</label>
                                     </div>
                             </div>
 
-                            <!-- Rating -->
                             <div class="row">
-                                    <div class="input-field">
-                                        <input id="rating" type="number" name="rating" required>
-                                        <label for="rating">Rating</label>
+                                <div class="col s12 m6">
+                                    <!-- Trailer URL -->
+                                    <div class="row">
+                                            <div class="input-field">
+                                                <i class="material-icons prefix">link</i>
+                                                <input id="trailer_url" type="text" name="trailer_url" required>
+                                                <label for="trailer_url">Trailer URL (YouTube URL)</label>
+                                            </div>
                                     </div>
+                                </div>
+
+                                <div class="col s12 m6">
+                                    <!-- Thumbnail -->
+                                    <div class="file-field input-field">
+                                            <div>
+                                                <input type="file" accept="image/png, image/jpeg"  name="thumbnail">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <i class="material-icons prefix">image</i>
+                                                <input class="file-path validate" type="text" placeholder="Thumbnail">
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
 
-                            <!-- Trailer URL -->
-                            <div class="row">
-                                    <div class="input-field">
-                                        <input id="trailer_url" type="text" name="trailer_url" required>
-                                        <label for="trailer_url">Trailer URL (YouTube URL)</label>
-                                    </div>
-                            </div>
-
-                            <!-- Thumbnail -->
-                            <div class="file-field input-field">
-                                <div>
-                                    <input type="file" accept="image/png, image/jpeg"  name="thumbnail">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Thumbnail">
-                                </div>
-                            </div>
+                            
+                            
 
                             
                             <div class="row">
