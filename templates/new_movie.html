@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/material-icons.css') }}" media="screen,projection" />
+        
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection"/>
+        <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add New Movie</title>
+    </head>
+
+
+    <body class="grey lighten-4 grey-text text-darken-4 z-depth-0">            
+        <nav>
+            <div class="nav-wrapper teal">
+                <a href="/" class="brand-logo center"><strong>Logo</strong></a>
+                <ul id="nav-mobile" class="right">
+                    <li>
+                    <a href="logout">Logout</a>
+                    </li>
+                </ul>
+
+                <ul id="nav-mobile" class="left">
+                </ul>
+                
+            </div>
+        </nav>
+            <br>
+            <br>
+
+           <div class="container">
+                <div class="card-panel" style="padding-left: 5%; padding-right: 5%; margin-left: auto; margin-right: auto;">
+                        <h3 class="center">Add New Movie</h3>
+                        <form method="POST" enctype = "multipart/form-data">
+                            <br>
+                            <!-- Movie Title -->
+                            <div class="row">
+                                    <div class="input-field">
+                                        <input id="movie_title" type="text" name="movie_title" required>
+                                        <label for="movie_title">Title</label>
+                                    </div>
+                            </div>
+    
+                            
+                            <!-- Genre -->
+                            <div class="row">
+                                    <div class="input-field">
+                                        <input id="genre" type="text" name="genre" required>
+                                        <label for="genre">Genre</label>
+                                    </div>
+                            </div>
+
+                            <!-- Release Year -->
+                            <div class="row">
+                                    <div class="input-field">
+                                        <input id="release_year" type="number" name="release_year" required>
+                                        <label for="release_year">Release Year</label>
+                                    </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="row">
+                                    <div class="input-field">
+                                        <textarea id="description" class="materialize-textarea"></textarea>
+                                        <label for="description">Description</label>
+                                    </div>
+                            </div>
+
+                            <!-- Rating -->
+                            <div class="row">
+                                    <div class="input-field">
+                                        <input id="rating" type="number" name="rating" required>
+                                        <label for="rating">Rating</label>
+                                    </div>
+                            </div>
+
+                            <!-- Trailer URL -->
+                            <div class="row">
+                                    <div class="input-field">
+                                        <input id="trailer_url" type="text" name="trailer_url" required>
+                                        <label for="trailer_url">Trailer URL (YouTube URL)</label>
+                                    </div>
+                            </div>
+
+                            <!-- Thumbnail -->
+                            <div class="file-field input-field">
+                                <div>
+                                    <input type="file" accept="image/png, image/jpeg"  name="thumbnail">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Thumbnail">
+                                </div>
+                            </div>
+
+                            
+                            <div class="row">
+                                <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">Add
+                                    <i class="material-icons right">add</i>
+                                </button>
+                            </div>
+                        </form>    
+                </div>
+           </div>
+
+        <div style="padding:500px;"></div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-3.2.1.min.js') }}"></script>
+    <!-- Materialize -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            // INIT SELECT LIST
+            $('select').material_select();
+            // Init Side nav
+            $('.button-collapse').sideNav();
+            // Init Scrollspy
+            $('.scrollspy').scrollSpy();
+
+        });
+    </script>
+
+    {% if msg != '' %}
+    <script>
+        Materialize.toast('{{ msg }}', 8000, 'rounded');
+    </script>
+    {% endif %}
+    </body>
+</html>

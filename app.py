@@ -86,6 +86,11 @@ def most_watched():
     return render_template('most_watched.html')
 
 
+# New Movie
+@app.route('/new_movie')
+def new_movie():
+    return render_template('new_movie.html')
+
 if __name__ == '__main__':
     # app.run(host='0.0.0.0')
     app.run()
