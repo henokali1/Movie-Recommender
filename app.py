@@ -87,9 +87,21 @@ def most_watched():
 
 
 # New Movie
-@app.route('/new_movie')
+@app.route('/new_movie', methods=['GET', 'POST'])
 def new_movie():
-    return render_template('new_movie.html')
+	if request.method == 'POST':
+		title = request.form.get('movie_title')
+		genre = request.form.get('genre')
+		release_year = request.form.get('release_year')
+		rating = request.form.get('rating')
+		description = request.form.get('description')
+		trailer_url = request.form.get('trailer_url')
+		print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}'.format(
+			title, genre, release_year, rating, description, trailer_url))
+		return render_template('new_movie.html')
+
+
+	return render_template('new_movie.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
