@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
+import dbconnector as db
 
 app = Flask(__name__)
 
@@ -98,6 +99,12 @@ def new_movie():
 		trailer_url = request.form.get('trailer_url')
 		print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}'.format(
 			title, genre, release_year, rating, description, trailer_url))
+		
+		sql = "INSERT INTO movies(title, genre, release_year, rating, description, trailer_url, thumbnail) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+		data = (title, genre, release_year, rating, description, trailer_url, '')
+		# Save into db
+		db.save(sql, data)
+		
 		return render_template('new_movie.html')
 
 
