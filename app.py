@@ -1,19 +1,19 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-# from flask_mysqldb import MySQL
-# from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-# from passlib.hash import sha256_crypt
+from flask_mysqldb import MySQL
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from passlib.hash import sha256_crypt
 from functools import wraps
 
 app = Flask(__name__)
 
 # Config MySQL
-# app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = 'waleflask'
-# app.config['MYSQL_DB'] = 'movie_rec'
-# app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-# # init MYSQL
-# mysql = MySQL(app)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'waleflask'
+app.config['MYSQL_DB'] = 'movie_rec'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# init MYSQL
+mysql = MySQL(app)
 app.config['DEBUG'] = True
 
 
@@ -92,5 +92,5 @@ def new_movie():
     return render_template('new_movie.html')
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0')
-    app.run()
+    app.run(host='0.0.0.0')
+    # app.run()
