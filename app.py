@@ -1,20 +1,20 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from passlib.hash import sha256_crypt
+# from flask_mysqldb import MySQL
+# from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+# from passlib.hash import sha256_crypt
 from functools import wraps
 
 app = Flask(__name__)
 
 # Config MySQL
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'waleflask'
-app.config['MYSQL_DB'] = 'movie_rec'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-# init MYSQL
-mysql = MySQL(app)
-
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'waleflask'
+# app.config['MYSQL_DB'] = 'movie_rec'
+# app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# # init MYSQL
+# mysql = MySQL(app)
+app.config['DEBUG'] = True
 
 
 # Check if user logged in
@@ -35,13 +35,13 @@ def index():
 
 
 # Register Form Class
-class RegisterForm(Form):
-    email = StringField('Email', [validators.Length(min=1, max=50)])
-    password = PasswordField('Password', [
-        validators.DataRequired(),
-        validators.EqualTo('confirm', message='Passwords do not match')
-    ])
-    confirm = PasswordField('Confirm Password')
+# class RegisterForm(Form):
+#     email = StringField('Email', [validators.Length(min=1, max=50)])
+#     password = PasswordField('Password', [
+#         validators.DataRequired(),
+#         validators.EqualTo('confirm', message='Passwords do not match')
+#     ])
+#     confirm = PasswordField('Confirm Password')
 
 
 # Register
@@ -80,8 +80,12 @@ def login():
         return render_template('login.html')
     return render_template('login.html')
 
+# Most Watched
+@app.route('/most_watched')
+def most_watched():
+    return render_template('most_watched.html')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-    # app.run()
+    # app.run(host='0.0.0.0')
+    app.run()

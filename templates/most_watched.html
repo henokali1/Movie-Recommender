@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/material-icons.css') }}" media="screen,projection" />
+    
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Recommender</title>
+</head>
+
+<body>
+    <nav>
+      <div class="nav-wrapper teal">
+          <!-- <div class="container"> -->
+          <a href="/" class="brand-logo center"><strong>Logo</strong></a>
+          <ul id="nav-mobile" class="right">
+              <li>
+                  <a href="logout">Logout</a>
+                </li>
+          </ul>
+
+          <ul id="nav-mobile" class="left">
+              <li>
+              <!-- <a class="modal-trigger" href="#modal1">Bin Status</a> -->
+              </li>
+          </ul>
+          
+          <!-- </div> -->
+      </div>
+    </nav>
+      <br>
+      <br>
+    <div class="container">
+          <!-- Section: Popular -->
+  <section>
+        <h5 class="center">Most Watched Movies</h5> 
+          <div class="row">
+
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/Shazam!.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">Shazam!</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+              
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/Hellboy 2019.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">Hellboy 2019</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/Us 2019.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">Us 2019</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/Captain Marvel.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">Captain Marvel</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/Avengers Endgame.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">Avengers Endgame</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/Deadpool 2.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">Deadpool 2</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="col s6 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                        <img src="{{ url_for('static', filename='img/First Man.jpg') }}" alt="">
+                  
+                </div>
+                <div class="card-content">
+                        <span class="card-title">First Man</span>
+                  <p>Short Movie Discription</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s6 m4 l3">
+                <div class="card">
+                    <div class="card-image">
+                            <img src="{{ url_for('static', filename='img/Venom 2018.jpg') }}" alt="">
+                    
+                    </div>
+                    <div class="card-content">
+                            <span class="card-title">Venom 2018</span>
+                    <p>Short Movie Discription</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col s6 m4 l3">
+                    <div class="card">
+                        <div class="card-image">
+                                <img src="{{ url_for('static', filename='img/Aquaman.jpg') }}" alt="">
+                        
+                        </div>
+                        <div class="card-content">
+                                <span class="card-title">Aquaman</span>
+                        <p>Short Movie Discription</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="col s6 m4 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                    <img src="{{ url_for('static', filename='img/Spider-Man Into the Spider-Verse.jpg') }}" alt="">
+                            
+                            </div>
+                            <div class="card-content">
+                                    <span class="card-title">Spider-Man Into the Spider-Verse</span>
+                            <p>Short Movie Discription</p>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="col s6 m4 l3">
+                            <div class="card">
+                                <div class="card-image">
+                                        <img src="{{ url_for('static', filename='img/A Quiet Place.jpg') }}" alt="">
+                                
+                                </div>
+                                <div class="card-content">
+                                        <span class="card-title">A Quiet Place</span>
+                                <p>Short Movie Discription</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+
+                        <div class="col s6 m4 l3">
+                                <div class="card">
+                                    <div class="card-image">
+                                            <img src="{{ url_for('static', filename='img/Annihilation.jpg') }}" alt="">
+                                    
+                                    </div>
+                                    <div class="card-content">
+                                            <span class="card-title">Annihilation</span>
+                                    <p>Short Movie Discription</p>
+                                    </div>
+                                </div>
+                                </div>
+                            
+
+                                <div class="col s6 m4 l3">
+                                        <div class="card">
+                                            <div class="card-image">
+                                                    <img src="{{ url_for('static', filename='img/Mission Impossible – Fallout.jpg') }}" alt="">
+                                            
+                                            </div>
+                                            <div class="card-content">
+                                                    <span class="card-title">Mission Impossible – Fallout</span>
+                                            <p>Short Movie Discription</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="col s6 m4 l3">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                            <img src="{{ url_for('static', filename='img/Incredibles 2.jpg') }}" alt="">
+                                                    
+                                                    </div>
+                                                    <div class="card-content">
+                                                            <span class="card-title">Incredibles 2</span>
+                                                    <p>Short Movie Discription</p>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                
+
+                                        <div class="col s6 m4 l3">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                            <img src="{{ url_for('static', filename='img/BlacKkKlansman.jpg') }}" alt="">
+                                                    
+                                                    </div>
+                                                    <div class="card-content">
+                                                            <span class="card-title">BlacKkKlansman</span>
+                                                    <p>Short Movie Discription</p>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                
+
+                                                <div class="col s6 m4 l3">
+                                                        <div class="card">
+                                                            <div class="card-image">
+                                                                    <img src="{{ url_for('static', filename='img/Avengers Infinity War.jpg') }}" alt="">
+                                                            
+                                                            </div>
+                                                            <div class="card-content">
+                                                                    <span class="card-title">Avengers Infinity War</span>
+                                                            <p>Short Movie Discription</p>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                
+
+                                                        <div class="col s6 m4 l3">
+                                                                <div class="card">
+                                                                    <div class="card-image">
+                                                                            <img src="{{ url_for('static', filename='img/Black Panther Action.jpg') }}" alt="">
+                                                                    
+                                                                    </div>
+                                                                    <div class="card-content">
+                                                                            <span class="card-title">Black Panther Action</span>
+                                                                    <p>Short Movie Discription</p>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+            
+
+
+
+        </div>
+          
+      </section>
+    </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-3.2.1.min.js') }}"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Materialize -->
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+  <script>
+    $(document).ready(function () {
+      // INIT SELECT LIST
+      $('select').material_select();
+      // Init Side nav
+      $('.button-collapse').sideNav();
+      // Init Scrollspy
+      $('.scrollspy').scrollSpy();
+
+    });
+  </script>
+  {% if msg != '' %}
+  <script>
+      Materialize.toast('{{ msg }}', 8000, 'rounded');
+  </script>
+  {% endif %}
+</body>
+
+</html>
