@@ -41,7 +41,7 @@
   <section>
     <h5 class="center">Most Watched Movies</h5> 
     <div class="row">
-        {{ for movie in all_movies }}
+        {% for movie in all_movies %}
         <div class="col s6 m4 l3">
             <div class="card">
                 <div class="card-image">
@@ -49,12 +49,12 @@
                 
                 </div>
                 <div class="card-content">
-                        <span class="card-title">title</span>
+                        <span class="card-title">{{movie.title}}</span>
                 <p>Short Movie Discription</p>
                 </div>
             </div>
         </div>
-        {{ endfor }}
+        {% endfor %}
     </div>      
     </section>
     </div>
