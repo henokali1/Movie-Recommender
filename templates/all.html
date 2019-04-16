@@ -40,6 +40,9 @@
           <!-- Section: Popular -->
   <section>
     <h5 class="center">Most Watched Movies</h5> 
+    {% for movie in all_movies %}
+    <p>{{movie.thumbnail}}</p>
+    {% endfor %}
     <div class="row">
         {% for movie in all_movies %}
         <div class="col s6 m4 l3">
