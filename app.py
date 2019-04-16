@@ -1,12 +1,19 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from werkzeug.utils import secure_filename
 from passlib.hash import sha256_crypt
+from flask_mysqldb import MySQL
 from functools import wraps
 import dbconnector as db
+import time
+import os
+
+UPLOAD_FOLDER = '/root/project_files/Movie-Recommender/static/img/movie_imgs/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -16,6 +23,14 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 mysql = MySQL(app)
 app.config['DEBUG'] = True
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def get_file_name(fn):
+    return str(time.time())+fn[-4:]
 
 
 # Check if user logged in
@@ -90,25 +105,42 @@ def most_watched():
 # New Movie
 @app.route('/new_movie', methods=['GET', 'POST'])
 def new_movie():
-	if request.method == 'POST':
-		title = request.form.get('movie_title')
-		genre = request.form.get('genre')
-		release_year = request.form.get('release_year')
-		rating = request.form.get('rating')
-		description = request.form.get('description')
-		trailer_url = request.form.get('trailer_url')
-		print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}'.format(
-			title, genre, release_year, rating, description, trailer_url))
-		
-		sql = "INSERT INTO movies(title, genre, release_year, rating, description, trailer_url, thumbnail) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-		data = (title, genre, release_year, rating, description, trailer_url, '')
-		# Save into db
-		db.save(sql, data)
-		
-		return render_template('new_movie.html')
+    if request.method == 'POST':
+        title = request.form.get('movie_title')
+        genre = request.form.get('genre')
+        release_year = request.form.get('release_year')
+        rating = request.form.get('rating')
+        description = request.form.get('description')
+        trailer_url = request.form.get('trailer_url')
+
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = get_file_name(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # return redirect(url_for('uploaded_file',
+            #                         filename=filename))
+
+        print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}\n filename: {}'.format(
+            title, genre, release_year, rating, description, trailer_url, filename))
+        
+        sql = "INSERT INTO movies(title, genre, release_year, rating, description, trailer_url, thumbnail) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+        data = (title, genre, release_year, rating, description, trailer_url, filename)
+        # Save into db
+        db.save(sql, data)
+        
+        return render_template('new_movie.html')
 
 
-	return render_template('new_movie.html')
+    return render_template('new_movie.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
