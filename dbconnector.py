@@ -11,16 +11,17 @@ def save(sql, data):
     cur.close()
     cnx.close()
 
-# All MSO's
-# def get_all_msos():
-#     cnx = mysql.connector.connect(user='root', password='@tmsqe!1321', host='127.0.0.1', database='MSO')
-#     cur = cnx.cursor(dictionary=True)
-#     cur.execute("SELECT * FROM tsd_mso_form ORDER BY id DESC")
-#     r = cur.fetchall()
-#     cnx.commit()
-#     cur.close()
-#     cnx.close()
-#     return r
+# All Movies
+def get_all_movies():
+    cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+    cur = cnx.cursor(dictionary=True)
+    # cur.execute("SELECT * FROM tsd_mso_form ORDER BY id DESC")
+    cur.execute("SELECT * FROM movies ORDER BY rating")
+    r = cur.fetchall()
+    cnx.commit()
+    cur.close()
+    cnx.close()
+    return r
 
 # Returns MSO's by the given email
 # def all_msos_by_user(user):

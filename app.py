@@ -102,6 +102,13 @@ def most_watched():
     return render_template('most_watched.html')
 
 
+# All Movies
+@app.route('/all')
+def all():
+    all_movies = db.get_all_movies()
+    return render_template('all.html', all_movies=all_movies)
+
+
 # New Movie
 @app.route('/new_movie', methods=['GET', 'POST'])
 def new_movie():
