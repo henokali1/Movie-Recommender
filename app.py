@@ -30,7 +30,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def get_file_name(fn):
-    return str(time.time())+fn[-4:]
+    return str(int(time.time()))+fn[-4:]
 
 
 # Check if user logged in
