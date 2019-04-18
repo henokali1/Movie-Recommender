@@ -54,7 +54,9 @@ def is_logged_in(f):
             return redirect(url_for('login'))
     return wrap
 
+
 @app.route('/movie/<string:id>/')
+@is_logged_in
 def movie_trailer(id):
     movie = db.get_movie_details(id)
     print(movie)
@@ -62,8 +64,7 @@ def movie_trailer(id):
 
 
 @app.route('/', methods=['GET', 'POST'])
-
-
+@is_logged_in
 def index():
     return render_template('index.html')
 
@@ -96,12 +97,6 @@ def register():
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # if request.method == 'POST':
-    #     email = request.form.get('user_email')
-    #     psw = request.form.get('user_password')
-    #     print(email, psw)
-    #     return render_template('login.html')
-    # return render_template('login.html')
     if request.method == 'POST':
         # Get Form Fields
         email = request.form.get('user_email')
@@ -123,7 +118,14 @@ def login():
         else:
             error = 'User not found'
             return render_template('login.html', msg=error)
+    return render_template('login.html')
     
+# Logout
+@app.route('/logout')
+@is_logged_in
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 # Sign In Sign Up
 @app.route('/a', methods=['GET', 'POST'])
@@ -133,12 +135,14 @@ def a():
 
 # Most Watched
 @app.route('/most_watched')
+@is_logged_in
 def most_watched():
     return render_template('most_watched.html')
 
 
 # All Movies
 @app.route('/all')
+@is_logged_in
 def all():
     all_movies = db.get_all_movies()
     return render_template('all.html', all_movies=all_movies)
@@ -146,6 +150,7 @@ def all():
 
 # New Movie
 @app.route('/new_movie', methods=['GET', 'POST'])
+@is_logged_in
 def new_movie():
     if request.method == 'POST':
         title = request.form.get('movie_title')
