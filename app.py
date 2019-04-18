@@ -44,8 +44,15 @@ def is_logged_in(f):
             return redirect(url_for('login'))
     return wrap
 
+@app.route('/movie/<string:id>/')
+def movie_trailer(id):
+    movie = db.get_movie_details(id)
+    return render_template('trailer.html', movie=movie)
+
 
 @app.route('/', methods=['GET', 'POST'])
+
+
 def index():
     return render_template('index.html')
 
@@ -95,6 +102,12 @@ def login():
         print(email, psw)
         return render_template('login.html')
     return render_template('login.html')
+
+# Sign In Sign Up
+@app.route('/a', methods=['GET', 'POST'])
+def a():
+    return render_template('signin_signup.html')
+
 
 # Most Watched
 @app.route('/most_watched')

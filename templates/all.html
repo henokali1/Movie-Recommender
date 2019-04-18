@@ -37,20 +37,15 @@
       <br>
       <br>
     <div class="container">
-          <!-- Section: Popular -->
-  <section>
+    <section>
     <h5 class="center">Most Watched Movies</h5> 
-    {% for movie in all_movies %}
-    <p>{{movie.thumbnail}}</p>
-    <img src="{{ url_for('static', filename='img/movie_imgs/{{movie.thumbnail}}') }}" alt="">
-    {% endfor %}
     <div class="row">
-        <img src="{{ url_for('static', filename='img/movie_imgs/1555424570.jpg') }}" alt="">
         {% for movie in all_movies %}
-        <div class="col s6 m4 l3">
+        <a href="/movie/{{movie.id}}">
+          <div class="col s6 m4 l3">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{ url_for('static', filename='img/movie_imgs/{{movie.thumbnail}}') }}" alt="">
+                    <img src="static/img/movie_imgs/{{movie.thumbnail}}" width="421px" height="442px" />
                 </div>
                 <div class="card-content">
                         <span class="card-title">{{movie.title}}</span>
@@ -58,6 +53,7 @@
                 </div>
             </div>
         </div>
+        </a>
         {% endfor %}
     </div>      
     </section>

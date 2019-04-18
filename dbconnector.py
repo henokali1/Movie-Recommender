@@ -23,6 +23,18 @@ def get_all_movies():
     cnx.close()
     return r
 
+# Movie Details
+def get_movie_details(id):
+	cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+	cur = cnx.cursor(dictionary=True)
+	cur.execute("SELECT * FROM movies WHERE id=" + str(id))
+	r = cur.fetchall()
+	cnx.commit()
+	cur.close()
+	cnx.close()
+	return r
+
+
 # Returns MSO's by the given email
 # def all_msos_by_user(user):
 #     cnx = mysql.connector.connect(user='root', password='@tmsqe!1321', host='127.0.0.1', database='MSO')

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/material-icons.css') }}" media="screen,projection" />
+        
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection"/>
+        <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trailer</title>
+    </head>
+
+
+    <body class="grey lighten-4 grey-text text-darken-4 z-depth-0">            
+        <nav>
+            <div class="nav-wrapper teal">
+                <a href="/" class="brand-logo center"><strong>Logo</strong></a>
+                <ul id="nav-mobile" class="right">
+                    <li>
+                    <a href="logout">Logout</a>
+                    </li>
+                </ul>
+
+                <ul id="nav-mobile" class="left">
+                </ul>
+                
+            </div>
+        </nav>
+            <br>
+            <br>
+            <p>{{movie.trailer_url}}</p>
+           <div class="container">
+                <embed width="420" height="315" src="{{movie.trailer_url}}">
+           </div>
+
+        <div style="padding:500px;"></div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-3.2.1.min.js') }}"></script>
+    <!-- Materialize -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            // INIT SELECT LIST
+            $('select').material_select();
+            // Init Side nav
+            $('.button-collapse').sideNav();
+            // Init Scrollspy
+            $('.scrollspy').scrollSpy();
+
+        });
+    </script>
+
+    {% if msg != '' %}
+    <script>
+        Materialize.toast('{{ msg }}', 8000, 'rounded');
+    </script>
+    {% endif %}
+    </body>
+</html>
