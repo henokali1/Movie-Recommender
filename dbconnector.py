@@ -32,18 +32,16 @@ def get_movie_details(id):
 	cnx.commit()
 	cur.close()
 	cnx.close()
-	return r
+	return r[0]
 
 
-# Returns MSO's by the given email
-# def all_msos_by_user(user):
-#     cnx = mysql.connector.connect(user='root', password='@tmsqe!1321', host='127.0.0.1', database='MSO')
-#     cur = cnx.cursor(dictionary=True)
-#     query = "SELECT * FROM tsd_mso_form WHERE posted_by=%s ORDER BY id DESC"
-#     cur.execute(query, (user,))
-#     r = cur.fetchall()
-#     cur.close()
-#     cnx.close()
-#     return r
+# Get user psw by email
+def user_psw(email):
+    cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+    cur = cnx.cursor()
 
-#print(delete_mso(7))
+    cur.execute("SELECT password FROM USERS WHERE email = %s", [email])
+    r = cur.fetchone()
+    cur.close()
+    cnx.close()
+    return r[0].encode('utf8')

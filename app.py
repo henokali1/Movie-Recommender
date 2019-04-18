@@ -14,6 +14,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['SECRET_KEY'] = 'seckey!@#$%'
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -32,6 +33,15 @@ def allowed_file(filename):
 def get_file_name(fn):
     return str(int(time.time()))+fn[-4:]
 
+# Returns video id of a given YouTube URL
+def get_video_id(yt_url):
+    sp = yt_url.split('/')
+    if sp[2] == 'youtu.be':
+        return sp[-1]
+    elif sp[2] == 'www.youtube.com':
+        return sp[-1][8:]
+    else:
+        return -1
 
 # Check if user logged in
 def is_logged_in(f):
@@ -47,6 +57,7 @@ def is_logged_in(f):
 @app.route('/movie/<string:id>/')
 def movie_trailer(id):
     movie = db.get_movie_details(id)
+    print(movie)
     return render_template('trailer.html', movie=movie)
 
 
@@ -57,24 +68,13 @@ def index():
     return render_template('index.html')
 
 
-# Register Form Class
-# class RegisterForm(Form):
-#     email = StringField('Email', [validators.Length(min=1, max=50)])
-#     password = PasswordField('Password', [
-#         validators.DataRequired(),
-#         validators.EqualTo('confirm', message='Passwords do not match')
-#     ])
-#     confirm = PasswordField('Confirm Password')
-
-
 # Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm(request.form)
-    print(form)
-    if request.method == 'POST' and form.validate():
-        email = form.email.data
-        password = sha256_crypt.encrypt(str(form.password.data))
+    print(request.form.get('user_email'), request.form.get('user_password'))
+    if request.method == 'POST':
+        email = request.form.get('user_email')
+        password = sha256_crypt.encrypt(str(request.form.get('user_password')))
         print(email, password)
         # Create cursor
         cur = mysql.connection.cursor()
@@ -96,12 +96,34 @@ def register():
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # if request.method == 'POST':
+    #     email = request.form.get('user_email')
+    #     psw = request.form.get('user_password')
+    #     print(email, psw)
+    #     return render_template('login.html')
+    # return render_template('login.html')
     if request.method == 'POST':
+        # Get Form Fields
         email = request.form.get('user_email')
-        psw = request.form.get('user_password')
-        print(email, psw)
-        return render_template('login.html')
-    return render_template('login.html')
+        password_candidate = request.form.get('user_password')
+        # Get user by email
+        password = db.user_psw(email)
+
+        if len(password) > 0:
+            # Compare Passwords
+            if sha256_crypt.verify(password_candidate, password):
+                # Passed
+                session['logged_in'] = True
+                session['email'] = email
+
+                return redirect(url_for('all'))
+            else:
+                error = 'Invalid login'
+                return render_template('login.html', msg=error)
+        else:
+            error = 'User not found'
+            return render_template('login.html', msg=error)
+    
 
 # Sign In Sign Up
 @app.route('/a', methods=['GET', 'POST'])
