@@ -26,13 +26,6 @@ mysql = MySQL(app)
 app.config['DEBUG'] = True
 
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-def get_file_name(fn):
-    return str(int(time.time()))+fn[-4:]
-
 # Returns video id of a given YouTube URL
 def get_video_id(yt_url):
     sp = yt_url.split('/')
@@ -42,6 +35,14 @@ def get_video_id(yt_url):
         return sp[-1][8:]
     else:
         return -1
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def get_file_name(fn):
+    return str(int(time.time()))+fn[-4:]
 
 # Check if user logged in
 def is_logged_in(f):
@@ -59,7 +60,8 @@ def is_logged_in(f):
 @is_logged_in
 def movie_trailer(id):
     movie = db.get_movie_details(id)
-    print(movie)
+    # video_id = get_video_id(movie['url'])
+    print(movie['trailer_url'])
     return render_template('trailer.html', movie=movie)
 
 
@@ -130,6 +132,28 @@ def logout():
 # Sign In Sign Up
 @app.route('/a', methods=['GET', 'POST'])
 def a():
+    print('here................')
+    if request.method == 'POST':
+        # Get Form Fields
+        email = request.form.get('user_email')
+        password_candidate = request.form.get('user_password')
+        # Get user by email
+        password = db.user_psw(email)
+
+        if len(password) > 0:
+            # Compare Passwords
+            if sha256_crypt.verify(password_candidate, password):
+                # Passed
+                session['logged_in'] = True
+                session['email'] = email
+
+                return redirect(url_for('all'))
+            else:
+                error = 'Invalid login'
+                return render_template('signin_signup.html', msg=error)
+        else:
+            error = 'User not found'
+            return render_template('signin_signup.html', msg=error)
     return render_template('signin_signup.html')
 
 
