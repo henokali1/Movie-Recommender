@@ -47,3 +47,23 @@ def user_psw(email):
     cur.close()
     cnx.close()
     return r[0].encode('utf8')
+
+# Delete Movie by ID
+def delete_movie(id):
+    query = "DELETE FROM movies WHERE id = %s"
+    # connect to the database server
+    cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+    cur = cnx.cursor()
+ 
+    try:
+        # execute the query
+        cur.execute(query, (id,))
+ 
+        # accept the change
+        cnx.commit()
+    except Error as error:
+        print(error)
+ 
+    finally:
+        cur.close()
+        cnx.close()

@@ -76,3 +76,74 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.5/dist-packages/werkzeug/serving.py", line 968, in run_simple
     s.bind(server_address)
 OSError: [Errno 98] Address already in use
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+5.31.133.62 - - [03/May/2019 12:22:18] "GET /all HTTP/1.1" 200 -
+5.31.133.62 - - [03/May/2019 12:22:18] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+5.31.133.62 - - [03/May/2019 12:22:18] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+5.31.133.62 - - [03/May/2019 12:22:19] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+167.99.167.2 - - [03/May/2019 13:35:13] "GET /all HTTP/1.1" 302 -
+167.99.167.2 - - [03/May/2019 13:35:13] "GET /login HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:14] "GET /static/js/materialize.min.js HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:14] "GET /static/css/material-icons.css HTTP/1.1" 304 -
+167.99.167.2 - - [03/May/2019 13:35:14] "GET /static/css/materialize.min.css HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:14] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:16] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:16] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:16] "GET /static/css/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:18] "GET /favicon.ico HTTP/1.1" 404 -
+167.99.167.2 - - [03/May/2019 13:35:23] "POST /login HTTP/1.1" 302 -
+167.99.167.2 - - [03/May/2019 13:35:23] "GET /all HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:24] "GET /static/css/style.css HTTP/1.1" 304 -
+167.99.167.2 - - [03/May/2019 13:35:24] "GET /static/css/main.css HTTP/1.1" 304 -
+167.99.167.2 - - [03/May/2019 13:35:24] "GET /static/img/movie_imgs/1556885214.jpg HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1555508227.jpg HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1555411957.3641222.jpg HTTP/1.1" 304 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1555424570.jpg HTTP/1.1" 304 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1555412050.9501524.jpg HTTP/1.1" 304 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1556885820.jpg HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1556886087.jpg HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:25] "GET /static/img/movie_imgs/1556885860.jpg HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:35:26] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+167.99.167.2 - - [03/May/2019 13:35:33] "GET /login HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:36:04] "POST /login HTTP/1.1" 302 -
+167.99.167.2 - - [03/May/2019 13:36:04] "GET /all HTTP/1.1" 200 -
+167.99.167.2 - - [03/May/2019 13:36:05] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+5.31.133.62 - - [03/May/2019 13:54:12] "GET /all HTTP/1.1" 302 -
+5.31.133.62 - - [03/May/2019 13:54:12] "GET /login HTTP/1.1" 200 -
+5.31.133.62 - - [03/May/2019 13:54:13] "GET /favicon.ico HTTP/1.1" 404 -
+218.67.235.36 - - [03/May/2019 18:38:30] "GET /new_movie HTTP/1.1" 302 -
+218.67.235.36 - - [03/May/2019 18:38:31] "GET /login HTTP/1.1" 200 -
+218.67.235.36 - - [03/May/2019 18:38:31] "GET /static/css/material-icons.css HTTP/1.1" 200 -
+218.67.235.36 - - [03/May/2019 18:38:31] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 200 -
+218.67.235.36 - - [03/May/2019 18:38:31] "GET /static/js/materialize.min.js HTTP/1.1" 200 -
+218.67.235.36 - - [03/May/2019 18:38:31] "GET /static/css/materialize.min.css HTTP/1.1" 200 -
+66.249.93.45 - - [03/May/2019 19:51:07] "GET /favicon.ico HTTP/1.1" 404 -
+91.73.29.218 - - [03/May/2019 21:15:37] "GET /all HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 21:15:38] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+91.73.29.218 - - [03/May/2019 21:15:45] "GET /all HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 21:15:45] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+91.73.29.218 - - [03/May/2019 21:15:46] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+91.73.29.218 - - [03/May/2019 21:15:49] "GET /delete/9/ HTTP/1.1" 404 -
+107.170.96.6 - - [03/May/2019 21:15:50] "GET /delete/9 HTTP/1.1" 302 -
+91.73.29.218 - - [03/May/2019 21:15:58] "GET /delete/12/ HTTP/1.1" 404 -
+91.73.29.218 - - [03/May/2019 21:16:20] "GET /all HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 21:16:20] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+ * Detected change in '/root/project_files/Movie-Recommender/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+ * Detected change in '/root/project_files/Movie-Recommender/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+91.73.29.218 - - [03/May/2019 21:23:11] "GET /all HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 21:23:11] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+91.73.29.218 - - [03/May/2019 21:23:19] "GET /delete/18/ HTTP/1.1" 404 -

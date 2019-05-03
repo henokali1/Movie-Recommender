@@ -260,6 +260,15 @@ def new_movie():
 
     return render_template('new_movie.html')
 
+# Delete Movie through AJAX
+@app.route('/delete/<string:id>/', methods=['GET', 'POST'])
+@is_logged_in
+def delete_movie(id):
+    print('DeleteDeleteDeleteDelete', id)
+    db.delete_movie(id)
+    return redirect(url_for('all'))
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
     # app.run()
