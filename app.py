@@ -1,5 +1,6 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging, Blueprint
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from flask_paginate import Pagination, get_page_parameter, get_page_args
 from werkzeug.utils import secure_filename
 from passlib.hash import sha256_crypt
 from flask_mysqldb import MySQL
@@ -12,6 +13,7 @@ UPLOAD_FOLDER = '/root/project_files/Movie-Recommender/static/img/movie_imgs/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
+mod = Blueprint('users', __name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'seckey!@#$%'
@@ -209,6 +211,9 @@ def a():
 def most_watched():
     return render_template('most_watched.html')
 
+users = list(range(100))
+def get_users(offset=0, per_page=10):
+    return users[offset: offset + per_page]
 
 # All Movies
 @app.route('/all')
@@ -216,7 +221,12 @@ def most_watched():
 def all():
     user = str(session['email'])
     all_movies = db.get_all_movies()
-    return render_template('all.html', all_movies=all_movies, user=user)
+    total = len(all_movies)
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    pagination_movies = get_users(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap4')
+    return render_template('all.html', all_movies=all_movies, user=user, users=pagination_users, page=page, per_page=per_page, pagination=pagination,)
 
 
 # New Movie
