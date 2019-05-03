@@ -44,6 +44,10 @@ def allowed_file(filename):
 def get_file_name(fn):
     return str(int(time.time()))+fn[-4:]
 
+# Get curret user info
+def current_user():
+    return session['email'].encode('utf8')
+
 # Check if user logged in
 def is_logged_in(f):
     @wraps(f)
@@ -64,6 +68,48 @@ def movie_trailer(id):
     print(movie['trailer_url'])
     return render_template('trailer.html', movie=movie)
 
+# Edit Movie Details
+@app.route('/edit/<string:id>/', methods=['GET', 'POST'])
+@is_logged_in
+def edit(id):
+    if request.method == 'POST':
+        title = request.form.get('movie_title')
+        genre = request.form.get('genre')
+        release_year = request.form.get('release_year')
+        rating = request.form.get('rating')
+        description = request.form.get('description')
+        trailer_url = request.form.get('trailer_url')
+        
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = get_file_name(file.filename)
+            print('filenamefilenamefilename', filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # return redirect(url_for('uploaded_file',
+            #                         filename=filename))
+
+        print(title, genre, release_year, rating, description, trailer_url)
+        print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}\n filename: {}'.format(
+            title, genre, release_year, rating, description, trailer_url, 'filename'))
+        
+        # Update the MSO in the database
+        sql = "UPDATE movies  SET title=%s, genre=%s, release_year=%s, rating=%s, description=%s, trailer_url=%s, thumbnail=%s  WHERE id=%s"
+        data = (title, genre, release_year, rating, description, trailer_url, filename, int(id)) 
+
+        db.save(sql, data)
+
+
+    movie = db.get_movie_details(id)
+    return render_template('edit.html', movie=movie)
 
 @app.route('/', methods=['GET', 'POST'])
 @is_logged_in
@@ -168,8 +214,9 @@ def most_watched():
 @app.route('/all')
 @is_logged_in
 def all():
+    user = str(session['email'])
     all_movies = db.get_all_movies()
-    return render_template('all.html', all_movies=all_movies)
+    return render_template('all.html', all_movies=all_movies, user=user)
 
 
 # New Movie

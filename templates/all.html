@@ -57,8 +57,10 @@
               <div class="card-content">
                   <h2>{{movie.title|truncate(30)}}</h2>
                   <p>Rating: {{movie.rating}}</p>
+                  {% if user == 'admin@email.com' or user == 'u@e.c' %}
                   <a href="/edit/{{movie.id}}/" class="btn-floating"><i class="material-icons green right">edit</i></a>
                   <a href="/delete/{{movie.id}}/" class="btn-floating"><i class="material-icons red right">delete</i></a>
+                  {% endif %}
               </div><!-- .card-content -->
           </a>
         </article><!-- .card -->
