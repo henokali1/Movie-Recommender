@@ -147,3 +147,302 @@ OSError: [Errno 98] Address already in use
 91.73.29.218 - - [03/May/2019 21:23:11] "GET /all HTTP/1.1" 200 -
 91.73.29.218 - - [03/May/2019 21:23:11] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
 91.73.29.218 - - [03/May/2019 21:23:19] "GET /delete/18/ HTTP/1.1" 404 -
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+91.73.29.218 - - [03/May/2019 22:06:58] "GET /all?page=2 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/project_files/Movie-Recommender/app.py", line 58, in wrap
+    return f(*args, **kwargs)
+  File "/root/project_files/Movie-Recommender/app.py", line 229, in all
+    return render_template('all.html', all_movies=all_movies, user=user, users=pagination_users, page=page, per_page=per_page, pagination=pagination,)
+NameError: name 'pagination_users' is not defined
+91.73.29.218 - - [03/May/2019 22:06:59] "GET /all?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 22:06:59] "GET /all?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 22:06:59] "GET /all?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 22:07:00] "GET /all?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 22:07:01] "GET /all?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 22:07:01] "GET /all?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/root/project_files/Movie-Recommender/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+91.73.29.218 - - [03/May/2019 22:07:17] "GET /all?page=2 HTTP/1.1" 200 -
+91.73.29.218 - - [03/May/2019 22:07:18] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+112.64.199.58 - - [03/May/2019 22:10:16] "GET / HTTP/1.0" 302 -
+212.92.124.201 - - [03/May/2019 22:15:55] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+212.92.124.201 - - [03/May/2019 22:15:55] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+212.92.124.201 - - [03/May/2019 22:15:55] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+212.92.124.201 - - [03/May/2019 22:15:55] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+120.244.109.203 - - [04/May/2019 00:38:17] "GET / HTTP/1.1" 302 -
+120.244.109.203 - - [04/May/2019 00:38:17] "GET /login HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:17] "GET /static/css/material-icons.css HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:17] "GET /static/js/materialize.min.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:17] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:17] "GET /static/css/materialize.min.css HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:19] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:19] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:19] "GET /static/css/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:38:20] "GET /favicon.ico HTTP/1.1" 404 -
+120.244.109.203 - - [04/May/2019 00:39:03] "POST /login HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/project_files/Movie-Recommender/app.py", line 155, in login
+    password = db.user_psw(email)
+  File "/root/project_files/Movie-Recommender/dbconnector.py", line 47, in user_psw
+    cur.close()
+  File "/usr/local/lib/python3.5/dist-packages/mysql/connector/cursor_cext.py", line 402, in close
+    self._cnx.handle_unread_result()
+  File "/usr/local/lib/python3.5/dist-packages/mysql/connector/connection_cext.py", line 617, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+120.244.109.203 - - [04/May/2019 00:39:03] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:03] "GET /login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:03] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:05] "GET /login?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:05] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:06] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:13] "GET /register HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:14] "GET /static/css/material-icons.css HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:14] "GET /static/css/materialize.min.css HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:14] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:14] "GET /static/js/materialize.min.js HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:15] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:15] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:15] "GET /static/css/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:19] "GET /login HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:39:19] "GET /static/css/material-icons.css HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:20] "GET /static/css/materialize.min.css HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:20] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:39:20] "GET /static/js/materialize.min.js HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:44:41] "GET / HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:44:42] "GET /static/css/material-icons.css HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:44:42] "GET /static/css/materialize.min.css HTTP/1.1" 304 -
+120.244.109.203 - - [04/May/2019 00:44:43] "GET /static/css/main.css HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:44:43] "GET /static/js/materialize.min.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:44:43] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:44:43] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:44:43] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:09] "GET /login HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:10] "GET /static/css/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:11] "GET /favicon.ico HTTP/1.1" 404 -
+120.244.109.203 - - [04/May/2019 00:45:26] "POST /login HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/project_files/Movie-Recommender/app.py", line 155, in login
+    password = db.user_psw(email)
+  File "/root/project_files/Movie-Recommender/dbconnector.py", line 47, in user_psw
+    cur.close()
+  File "/usr/local/lib/python3.5/dist-packages/mysql/connector/cursor_cext.py", line 402, in close
+    self._cnx.handle_unread_result()
+  File "/usr/local/lib/python3.5/dist-packages/mysql/connector/connection_cext.py", line 617, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+120.244.109.203 - - [04/May/2019 00:45:27] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:27] "GET /login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:27] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:30] "GET /login?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:30] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:45:32] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:46:21] "GET /register HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:47:20] "POST /register HTTP/1.1" 302 -
+120.244.109.203 - - [04/May/2019 00:47:20] "GET /login HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:47:57] "POST /login HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/project_files/Movie-Recommender/app.py", line 155, in login
+    password = db.user_psw(email)
+  File "/root/project_files/Movie-Recommender/dbconnector.py", line 47, in user_psw
+    cur.close()
+  File "/usr/local/lib/python3.5/dist-packages/mysql/connector/cursor_cext.py", line 402, in close
+    self._cnx.handle_unread_result()
+  File "/usr/local/lib/python3.5/dist-packages/mysql/connector/connection_cext.py", line 617, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+120.244.109.203 - - [04/May/2019 00:47:57] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:47:57] "GET /login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:47:57] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:48:00] "GET /login?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:48:00] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.244.109.203 - - [04/May/2019 00:48:01] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+66.249.93.41 - - [04/May/2019 05:25:58] "GET /a HTTP/1.1" 200 -
+66.249.93.41 - - [04/May/2019 05:25:59] "GET /favicon.ico HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:14:09] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:14:10] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:19:00] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:00] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:19:09] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:09] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:19:13] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:13] "GET /static/css/material-icons.css HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:13] "GET /static/css/materialize.min.css HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:13] "GET /static/css/main.css HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:13] "GET /static/css/style.css HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:13] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:14] "GET /static/js/materialize.min.js HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:16] "GET /static/img/movie_imgs/1556885214.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:16] "GET /static/img/movie_imgs/1555412050.9501524.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:16] "GET /static/img/movie_imgs/1555411957.3641222.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:16] "GET /static/img/movie_imgs/1555424570.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:16] "GET /static/img/movie_imgs/1555508227.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:16] "GET /static/img/movie_imgs/1556885820.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:17] "GET /static/img/movie_imgs/1556885860.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:17] "GET /static/img/movie_imgs/1556886087.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:17] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:19:30] "GET /favicon.ico HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:19:31] "GET /all?page=2 HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:19:31] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:19:32] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+ * Detected change in '/root/project_files/Movie-Recommender/dbconnector.py', reloading
+None None
+None None
+admin@email.com @dminp$w
+admin@email.com $5$rounds=535000$p30j.bIqlYuwRYkp$Q/zC461oc7vOOGjtF7A30kv1Tsa65HhgiuthH2iGk1D
+here................
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+217.165.62.134 - - [04/May/2019 06:21:46] "GET /all?page=2 HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:21:47] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:47] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:48] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:49] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:49] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:50] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:51] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:52] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:52] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:53] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:54] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:55] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:55] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:56] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:57] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:58] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:21:59] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:00] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:01] "GET /all?page=1 HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:22:01] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:03] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:04] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:04] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:05] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:06] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:06] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:07] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:08] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:09] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:10] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:11] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:12] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:13] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:14] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:14] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:16] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:17] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:18] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:19] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:20] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:21] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:22] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:23] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:24] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:25] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:26] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:28] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:29] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:30] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:31] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:32] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+217.165.62.134 - - [04/May/2019 06:22:33] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+ * Detected change in '/root/project_files/Movie-Recommender/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+217.165.62.134 - - [04/May/2019 06:33:53] "GET /p HTTP/1.1" 200 -
+217.165.62.134 - - [04/May/2019 06:33:54] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [04/May/2019 06:33:54] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [04/May/2019 06:34:02] "GET /p HTTP/1.1" 200 -

@@ -18,7 +18,7 @@ def get_all_movies():
     cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
     cur = cnx.cursor(dictionary=True)
     # cur.execute("SELECT * FROM tsd_mso_form ORDER BY id DESC")
-    cur.execute("SELECT * FROM movies WHERE id < 40 ORDER BY id")
+    cur.execute("SELECT * FROM movies ORDER BY rating")
     r = cur.fetchall()
     cnx.commit()
     cur.close()
