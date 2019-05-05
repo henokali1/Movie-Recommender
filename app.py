@@ -213,25 +213,9 @@ def most_watched():
 
 # users = list(range(100))
 
-def get_movies(offset=0, per_page=12):
+def get_movies(offset=0, per_page=22):
 	movies = db.get_all_movies()
 	return movies[offset: offset + per_page]
-
-@app.route('/p')
-def p():
-    movies = db.get_all_movies()
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
-    total = len(movies)
-    pagination_movies = get_movies(offset=offset, per_page=per_page)
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap4')
-    return render_template('p.html',
-                           movies=pagination_movies,
-                           page=page,
-                           per_page=per_page,
-                           pagination=pagination,
-                           )
 
 # All Movies
 @app.route('/all')
