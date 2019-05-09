@@ -497,3 +497,64 @@ here................
 82.102.24.167 - - [06/May/2019 05:06:24] code 400, message Bad request syntax ('V#,ÅiÀ\x9d7\x9cJ\\¼_¾×ãJó\x1fïÜV/`uØ4\x01Ü`1_\x93A¸s¢\x10cÚ\x87£\x90\\Â_h\x8af~ÙêÐ¸\x02ÂÈ\x9cÎ%õ\x93¡Ê?\x0b»^Ó¤E¿×ã\x0bôâúþ\x98lv\x18xÆ\x9e~\x16i`I\x88\x183\t[[ìÙJÎËV"¥¾«ÈÁ²\x14län&Æ\x8bÞ\x85l!àñ¼¿>øë"\x105\x7fÔ\x80°T\x16\x14')
 82.102.24.167 - - [06/May/2019 05:06:24] "V#,ÅiÀ7J\¼_¾×ãJóïÜV/`uØ4Ü`1_A¸s¢cÚ£\Â_hf~ÙêÐ¸ÂÈÎ%õ¡Ê?»^Ó¤E¿×ãôâúþlvxÆ~i`I3	[[ìÙJÎËV"¥¾«ÈÁ²län&ÆÞl!àñ¼¿>øë"5Ô°T" HTTPStatus.BAD_REQUEST -
 66.249.93.41 - - [06/May/2019 07:06:51] "GET /favicon.ico HTTP/1.1" 404 -
+185.92.72.135 - - [06/May/2019 18:42:14] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+185.92.72.135 - - [06/May/2019 18:42:14] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+185.92.72.135 - - [06/May/2019 18:42:14] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+185.92.72.135 - - [06/May/2019 18:42:14] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+66.249.93.39 - - [07/May/2019 05:53:19] "GET / HTTP/1.1" 302 -
+66.249.93.41 - - [07/May/2019 05:53:19] "GET /login HTTP/1.1" 200 -
+217.165.62.134 - - [07/May/2019 05:55:28] "GET / HTTP/1.1" 302 -
+217.165.62.134 - - [07/May/2019 05:55:28] "GET /login HTTP/1.1" 200 -
+217.165.62.134 - - [07/May/2019 05:55:28] "GET /static/css/material-icons.css HTTP/1.1" 304 -
+217.165.62.134 - - [07/May/2019 05:55:28] "GET /static/css/materialize.min.css HTTP/1.1" 304 -
+217.165.62.134 - - [07/May/2019 05:55:28] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 304 -
+217.165.62.134 - - [07/May/2019 05:55:29] "GET /static/js/materialize.min.js HTTP/1.1" 304 -
+217.165.62.134 - - [07/May/2019 05:55:29] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [07/May/2019 05:55:29] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [07/May/2019 05:55:29] "GET /static/css/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1" 304 -
+66.249.93.39 - - [07/May/2019 07:08:26] "GET /favicon.ico HTTP/1.1" 404 -
+185.173.35.33 - - [07/May/2019 10:42:03] "GET / HTTP/1.0" 302 -
+66.249.83.84 - - [07/May/2019 11:27:39] "GET / HTTP/1.1" 302 -
+66.249.83.84 - - [07/May/2019 11:27:39] "GET /login HTTP/1.1" 200 -
+66.249.83.82 - - [07/May/2019 11:27:39] "GET /favicon.ico HTTP/1.1" 404 -
+185.92.72.146 - - [07/May/2019 12:16:27] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+185.92.72.146 - - [07/May/2019 12:16:27] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+185.92.72.146 - - [07/May/2019 12:16:27] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+185.92.72.146 - - [07/May/2019 12:16:27] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+66.249.93.39 - - [08/May/2019 09:16:27] "GET / HTTP/1.1" 302 -
+66.249.93.36 - - [08/May/2019 09:16:27] "GET /login HTTP/1.1" 200 -
+66.249.93.41 - - [08/May/2019 09:16:27] "GET /favicon.ico HTTP/1.1" 404 -
+198.108.67.48 - - [08/May/2019 10:34:40] "GET / HTTP/1.1" 302 -
+194.28.112.168 - - [09/May/2019 01:56:35] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+194.28.112.168 - - [09/May/2019 01:56:35] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+194.28.112.168 - - [09/May/2019 01:56:36] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+194.28.112.168 - - [09/May/2019 01:56:36] "  *%à     Cookie: mstshash=Test" HTTPStatus.BAD_REQUEST -
+172.104.235.157 - - [09/May/2019 05:20:05] "GET / HTTP/1.0" 302 -
+66.249.93.36 - - [09/May/2019 11:06:51] "GET /favicon.ico HTTP/1.1" 404 -
+217.165.62.134 - - [09/May/2019 11:14:53] "GET / HTTP/1.1" 302 -
+217.165.62.134 - - [09/May/2019 11:14:54] "GET /login HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:14:54] "GET /static/css/material-icons.css HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:54] "GET /static/css/materialize.min.css HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:54] "GET /static/js/jquery-3.2.1.min.js HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:54] "GET /static/js/materialize.min.js HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:55] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:55] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:55] "GET /static/css/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:14:56] "GET /favicon.ico HTTP/1.1" 404 -
+217.165.62.134 - - [09/May/2019 11:15:02] "POST /login HTTP/1.1" 302 -
+217.165.62.134 - - [09/May/2019 11:15:02] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:02] "GET /static/css/main.css HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/css/style.css HTTP/1.1" 304 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/img/movie_imgs/1556954249.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/img/movie_imgs/1556955061.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/img/movie_imgs/1556955092.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/img/movie_imgs/1556955304.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/img/movie_imgs/1556955174.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:03] "GET /static/img/movie_imgs/1556955371.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:04] "GET /static/img/movie_imgs/1556955409.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:04] "GET /static/img/movie_imgs/1556955449.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:04] "GET /static/img/movie_imgs/1556955507.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:04] "GET /static/img/movie_imgs/1556955598.jpg HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:15] "GET /all?page=2 HTTP/1.1" 200 -
+217.165.62.134 - - [09/May/2019 11:15:15] "GET /static/img/movie_imgs/ HTTP/1.1" 404 -
+198.108.67.48 - - [09/May/2019 12:07:02] "GET / HTTP/1.1" 302 -
