@@ -69,6 +69,14 @@
           <!-- <div class="container"> -->
           <a href="/" class="brand-logo center"><strong>Logo</strong></a>
           <ul id="nav-mobile" class="right">
+          	<li>
+          		{% if user == 'admin@email.com' or user == 'u@e.c' %}
+          		<a href="/new_movie">New</a>
+          		{% endif %}
+          	</li>
+          	<li>
+          		<a href="/all">All Movies</a>
+          	</li>
               <li>
                   <a href="logout">Logout</a>
                 </li>
@@ -114,7 +122,7 @@
             <label for="demo-4" aria-label="4 stars" title="4 stars"></label>
             <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
             <!-- <button onclick="redirect()">Submit</button> -->
-            <a class="btn" href="/all">Submit</a>
+            <a class="waves-effect waves-light btn" href="/all"><i class="material-icons right">send</i>Submit</a>
         </div>
 
         

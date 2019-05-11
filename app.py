@@ -79,7 +79,7 @@ def movie_detail(title):
 	r_movs = []
 	for i in r:
 		r_movs.append({'title': i, 'rating': db.get_rating(i)})
-	return render_template('movie_detail.html', title=title, movie_recommendation=r, r_movs=r_movs)
+	return render_template('movie_detail.html', title=title, movie_recommendation=r, r_movs=r_movs, user = str(session['email']))
 
 # Edit Movie Details
 @app.route('/edit/<string:id>/', methods=['GET', 'POST'])
@@ -122,18 +122,17 @@ def edit(id):
 
 
     movie = db.get_movie_details(id)
-    return render_template('edit.html', movie=movie)
+    return render_template('edit.html', movie=movie, user=str(session['email']))
 
 @app.route('/', methods=['GET', 'POST'])
 @is_logged_in
 def index():
-    return render_template('index.html')
+    return redirect(url_for('all'))
 
 
 # Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    print(request.form.get('user_email'), request.form.get('user_password'))
     if request.method == 'POST':
         email = request.form.get('user_email')
         password = sha256_crypt.encrypt(str(request.form.get('user_password')))
@@ -191,7 +190,6 @@ def logout():
 # Sign In Sign Up
 @app.route('/a', methods=['GET', 'POST'])
 def a():
-    print('here................')
     if request.method == 'POST':
         # Get Form Fields
         email = request.form.get('user_email')

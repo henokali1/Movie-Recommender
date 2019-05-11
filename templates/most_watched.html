@@ -21,11 +21,19 @@
           <a href="/" class="brand-logo center"><strong>Logo</strong></a>
           <ul id="nav-mobile" class="right">
               <li>
-                  <a href="logout">Logout</a>
+                  <a href="/logout">Logout</a>
                 </li>
           </ul>
 
           <ul id="nav-mobile" class="left">
+            <li>
+              {% if user == 'admin@email.com' or user == 'u@e.c' %}
+              <a href="/new_movie">New</a>
+              {% endif %}
+            </li>
+            <li>
+              <a href="/all">All Movies</a>
+            </li>
               <li>
               <!-- <a class="modal-trigger" href="#modal1">Bin Status</a> -->
               </li>
