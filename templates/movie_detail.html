@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!--Import Google Icon Font-->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/material-icons.css') }}" media="screen,projection" />
+
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Recommender</title>
+</head>
+
+<body>
+	<style type="text/css">
+	    .rating input[type="radio"]:not(:nth-of-type(0)) {
+	        /* hide visually */    
+	        border: 0;
+	        height: 1px;
+	        margin: -1px;
+	        overflow: hidden;
+	        padding: 0;
+	        position: absolute;
+	        width: 1px;
+	    }
+	    .rating [type="radio"]:not(:nth-of-type(0)) + label {
+	        display: none;
+	    }
+	    
+	    label[for]:hover {
+	        cursor: pointer;
+	    }
+	    
+	    .rating .stars label:before {
+	        content: "★";
+	    }
+	    
+	    .stars label {
+	        color: lightgray;
+	    }
+	    
+	    .stars label:hover {
+	        text-shadow: 0 0 1px #000;
+	    }
+	    
+	    .rating [type="radio"]:nth-of-type(1):checked ~ .stars label:nth-of-type(-n+1),
+	    .rating [type="radio"]:nth-of-type(2):checked ~ .stars label:nth-of-type(-n+2),
+	    .rating [type="radio"]:nth-of-type(3):checked ~ .stars label:nth-of-type(-n+3),
+	    .rating [type="radio"]:nth-of-type(4):checked ~ .stars label:nth-of-type(-n+4),
+	    .rating [type="radio"]:nth-of-type(5):checked ~ .stars label:nth-of-type(-n+5) {
+	        color: orange;
+	    }
+	    
+	    .rating [type="radio"]:nth-of-type(1):focus ~ .stars label:nth-of-type(1),
+	    .rating [type="radio"]:nth-of-type(2):focus ~ .stars label:nth-of-type(2),
+	    .rating [type="radio"]:nth-of-type(3):focus ~ .stars label:nth-of-type(3),
+	    .rating [type="radio"]:nth-of-type(4):focus ~ .stars label:nth-of-type(4),
+	    .rating [type="radio"]:nth-of-type(5):focus ~ .stars label:nth-of-type(5) {
+	        color: darkorange;
+	    }
+	</style>
+
+    <nav>
+      <div class="nav-wrapper red">
+          <!-- <div class="container"> -->
+          <a href="/" class="brand-logo center"><strong>Logo</strong></a>
+          <ul id="nav-mobile" class="right">
+              <li>
+                  <a href="logout">Logout</a>
+                </li>
+          </ul>
+
+          <ul id="nav-mobile" class="left">
+              <li>
+              <!-- <a class="modal-trigger" href="#modal1">Bin Status</a> -->
+              </li>
+          </ul>
+          
+          <!-- </div> -->
+      </div>
+    </nav>
+      <br>
+      <br>
+    <div class="container">
+
+
+    <section>
+    <font size="6">Thank You for watching <strong><font style = "color:#8866ff;" size="6">{{title}}</font></strong></font>
+    
+    <h6>Please Give Us Your Rating:</h6>
+	
+<form>
+    <div class="rating">
+      
+        <input id="demo-1" type="radio" name="demo" value="1"> 
+        <label for="demo-1">1 star</label>
+        <input id="demo-2" type="radio" name="demo" value="2">
+        <label for="demo-2">2 stars</label>
+        <input id="demo-3" type="radio" name="demo" value="3">
+        <label for="demo-3">3 stars</label>
+        <input id="demo-4" type="radio" name="demo" value="4">
+        <label for="demo-4">4 stars</label>
+        <input id="demo-5" type="radio" name="demo" value="5">
+        <label for="demo-5">5 stars</label>
+        
+        <div class="stars">
+            <label for="demo-1" aria-label="1 star" title="1 star"></label>
+            <label for="demo-2" aria-label="2 stars" title="2 stars"></label>
+            <label for="demo-3" aria-label="3 stars" title="3 stars"></label>
+            <label for="demo-4" aria-label="4 stars" title="4 stars"></label>
+            <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
+            <!-- <button onclick="redirect()">Submit</button> -->
+            <a class="btn" href="/all">Submit</a>
+        </div>
+
+        
+        
+    </div>
+</form>
+
+    
+<div class="col s12 m4">
+
+    <h3 align="center">Recommended Movies</h3>
+    <main class="main-area">
+        
+        <div class="centered">
+
+            <section class="cards">
+
+      {% for movie in r_movs %}
+       <article class="card">
+          <a href="/{{movie.title}}">
+              <picture class="thumbnail">
+                  <!-- <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-02.jpg" alt="Playing Jenga with pool cues"> -->
+                  <img class="responsive-img" src="{{ url_for('static', filename='img/generic.png') }}" width="421px" height="442px" />
+              </picture>
+              <div class="card-content">
+                  <h2>{{movie.title|truncate(30)}}</h2>
+                  <p>Rating: {{movie.rating}}</p>
+                  {% if user == 'admin@email.com' or user == 'u@e.c' %}
+                  <a href="/edit/{{movie.id}}/" class="btn-floating"><i class="material-icons green right">edit</i></a>
+                  <a href="/delete/{{movie.id}}/" class="btn-floating"><i class="material-icons red right">delete</i></a>
+                  {% endif %}
+              </div><!-- .card-content -->
+          </a>
+        </article><!-- .card -->
+      {% endfor %}
+                
+                
+            </section><!-- .cards -->
+           
+        </div><!-- .centered -->
+       
+    </main>
+      
+    </section>
+    </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-3.2.1.min.js') }}"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Materialize -->
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+  <script>
+    $(document).ready(function () {
+      // INIT SELECT LIST
+      $('select').material_select();
+      // Init Side nav
+      $('.button-collapse').sideNav();
+      // Init Scrollspy
+      $('.scrollspy').scrollSpy();
+
+    });
+  </script>
+  {% if msg != '' %}
+  <script>
+      Materialize.toast('{{ msg }}', 8000, 'rounded');
+  </script>
+  {% endif %}
+  <script type="text/javascript">
+  	function redirect(){
+  		base_url = "http://167.99.111.169:5000/"
+  		window.open('https://www.google.com',"_self")
+  		return true
+  	}
+  </script>
+</body>
+
+</html>

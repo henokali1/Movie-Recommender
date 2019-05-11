@@ -1,3 +1,5 @@
+
+
 /* Import the google web fonts you want to use */
 
 
@@ -13,8 +15,6 @@ body {
 Typography
 --------------------------------------------------------------*/
 body,
-button,
-input,
 select,
 textarea {
 	color: #404040;
@@ -203,14 +203,4 @@ img {
         max-width: 52em;
     }
 }
-
-
-
-
-
-
-
-
-
-
 

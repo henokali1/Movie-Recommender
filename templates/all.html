@@ -55,10 +55,10 @@
 
       {% for movie in all_movies %}
        <article class="card">
-          <a href="#">
+          <a href="/{{movie.title}}">
               <picture class="thumbnail">
                   <!-- <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-02.jpg" alt="Playing Jenga with pool cues"> -->
-                  <img class="responsive-img" src="static/img/movie_imgs/{{movie.thumbnail}}" width="421px" height="442px" />
+                  <img class="responsive-img" src="{{ url_for('static', filename='img/generic.png') }}" width="421px" height="442px" />
               </picture>
               <div class="card-content">
                   <h2>{{movie.title|truncate(30)}}</h2>

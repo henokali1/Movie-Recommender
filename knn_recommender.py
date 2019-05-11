@@ -148,8 +148,8 @@ class KnnRecommender:
         if not match_tuple:
             print('Oops! No match is found')
         else:
-            print('Found possible matches in our database: '
-                  '{0}\n'.format([x[0] for x in match_tuple]))
+            # print('Found possible matches in our database: '
+            #       '{0}\n'.format([x[0] for x in match_tuple]))
             return match_tuple[0][1]
 
     def _inference(self, model, data, hashmap,
@@ -176,11 +176,11 @@ class KnnRecommender:
         # fit
         model.fit(data)
         # get input movie index
-        print('You have input movie:', fav_movie)
+        #print('You have input movie:', fav_movie)
         idx = self._fuzzy_matching(hashmap, fav_movie)
         # inference
-        print('Recommendation system start to make inference')
-        print('......\n')
+        #print('Recommendation system start to make inference')
+        #print('......\n')
         t0 = time.time()
         distances, indices = model.kneighbors(
             data[idx],
@@ -196,8 +196,8 @@ class KnnRecommender:
                 ),
                 key=lambda x: x[1]
             )[:0:-1]
-        print('It took my system {:.2f}s to make inference \n\
-              '.format(time.time() - t0))
+        # print('It took my system {:.2f}s to make inference \n\
+        #       '.format(time.time() - t0))
         # return recommendation (movieId, distance)
         return raw_recommends
 
@@ -219,7 +219,7 @@ class KnnRecommender:
             fav_movie, n_recommendations)
         # print results
         reverse_hashmap = {v: k for k, v in hashmap.items()}
-        print('Recommendations for {}:'.format(fav_movie))
+        #print('Recommendations for {}:'.format(fav_movie))
         rec_movies=[]
         for i, (idx, dist) in enumerate(raw_recommends):
             rec_movies.append(reverse_hashmap[idx])
@@ -227,8 +227,7 @@ class KnnRecommender:
                   # 'of {2}'.format(i+1, reverse_hashmap[idx], dist))
 
         rev_rec_movies = reverse_list(rec_movies)
-        for i in range(len(rev_rec_movies)):
-        	print(i+1, rev_rec_movies[i])
+        return rev_rec_movies        
 
 
 def parse_args():
@@ -255,8 +254,8 @@ def get_movie_rec(current_moive):
     data_path = 'data/MovieLens'
     movies_filename = 'movies.csv'
     ratings_filename = 'ratings.csv'
-    
-    top_n = 10
+
+    top_n = 12
     # initial recommender system
     recommender = KnnRecommender(
         'data/MovieLens/movies.csv',
@@ -264,8 +263,8 @@ def get_movie_rec(current_moive):
     # set params
     recommender.set_filter_params(50, 50)
     recommender.set_model_params(20, 'brute', 'cosine', -1)
-    return recommender.make_recommendations(current_moive, top_n)
-
+    r = recommender.make_recommendations(current_moive, top_n)
+    return r
 if __name__ == '__main__':
     # get args
     # args = parse_args()

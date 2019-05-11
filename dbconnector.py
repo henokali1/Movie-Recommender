@@ -18,7 +18,8 @@ def get_all_movies():
     cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
     cur = cnx.cursor(dictionary=True)
     # cur.execute("SELECT * FROM tsd_mso_form ORDER BY id DESC")
-    cur.execute("SELECT * FROM movies ORDER BY rating")
+    # cur.execute("SELECT * FROM movies ORDER BY rating")
+    cur.execute("SELECT * FROM movies")
     r = cur.fetchall()
     cnx.commit()
     cur.close()
@@ -67,3 +68,14 @@ def delete_movie(id):
     finally:
         cur.close()
         cnx.close()
+# Returns rating of a given movie title
+def get_rating(title):
+    cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+    cur = cnx.cursor()
+
+    cur.execute("SELECT rating FROM movies WHERE title = %s", [title])
+    r = cur.fetchone()
+    cur.close()
+    cnx.close()
+    print(title, r)
+    return r[0]

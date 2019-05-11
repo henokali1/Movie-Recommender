@@ -4,6 +4,7 @@ from flask_paginate import Pagination, get_page_parameter, get_page_args
 from werkzeug.utils import secure_filename
 from passlib.hash import sha256_crypt
 from flask_mysqldb import MySQL
+import knn_recommender as kr
 from functools import wraps
 import dbconnector as db
 import time
@@ -69,6 +70,16 @@ def movie_trailer(id):
     # video_id = get_video_id(movie['url'])
     print(movie['trailer_url'])
     return render_template('trailer.html', movie=movie)
+
+# Edit Movie Details
+@app.route('/<string:title>/', methods=['GET', 'POST'])
+@is_logged_in
+def movie_detail(title):
+	r = kr.get_movie_rec(str(title))
+	r_movs = []
+	for i in r:
+		r_movs.append({'title': i, 'rating': db.get_rating(i)})
+	return render_template('movie_detail.html', title=title, movie_recommendation=r, r_movs=r_movs)
 
 # Edit Movie Details
 @app.route('/edit/<string:id>/', methods=['GET', 'POST'])
