@@ -69,7 +69,7 @@ def movie_trailer(id):
     movie = db.get_movie_details(id)
     # video_id = get_video_id(movie['url'])
     print(movie['trailer_url'])
-    return render_template('trailer.html', movie=movie)
+    return render_template('trailer.html', movie=movie, user = str(session['email']))
 
 # Edit Movie Details
 @app.route('/<string:title>/', methods=['GET', 'POST'])
@@ -194,7 +194,8 @@ def a():
         # Get Form Fields
         email = request.form.get('user_email')
         password_candidate = request.form.get('user_password')
-        # Get user by email
+        print(email, password_candidate)
+        # # Get user by email
         password = db.user_psw(email)
 
         if len(password) > 0:
