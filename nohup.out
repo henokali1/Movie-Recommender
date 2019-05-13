@@ -13376,3 +13376,56 @@ IndexError: invalid index
 217.165.62.134 - - [13/May/2019 05:36:18] "GET /favicon.ico HTTP/1.1" 308 -
 217.165.62.134 - - [13/May/2019 05:36:18] "GET /favicon.ico/ HTTP/1.1" 302 -
 217.165.62.134 - - [13/May/2019 05:36:19] "GET /login HTTP/1.1" 200 -
+66.249.93.36 - - [13/May/2019 05:45:53] "GET /all HTTP/1.1" 302 -
+217.165.62.134 - - [13/May/2019 05:45:57] "GET / HTTP/1.1" 302 -
+217.165.62.134 - - [13/May/2019 05:45:57] "GET /login HTTP/1.1" 200 -
+217.165.62.134 - - [13/May/2019 05:45:58] "GET /favicon.ico/ HTTP/1.1" 302 -
+217.165.62.134 - - [13/May/2019 05:45:59] "GET /login HTTP/1.1" 200 -
+217.165.62.134 - - [13/May/2019 05:46:07] "POST /login HTTP/1.1" 302 -
+217.165.62.134 - - [13/May/2019 05:46:08] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [13/May/2019 05:46:09] "GET /favicon.ico/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/scipy/sparse/csr.py", line 244, in asindices
+    x = x.astype(idx_dtype)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/project_files/Movie-Recommender/app.py", line 59, in wrap
+    return f(*args, **kwargs)
+  File "/root/project_files/Movie-Recommender/app.py", line 78, in movie_detail
+    r = kr.get_movie_rec(str(title))
+  File "/root/project_files/Movie-Recommender/knn_recommender.py", line 266, in get_movie_rec
+    r = recommender.make_recommendations(current_moive, top_n)
+  File "/root/project_files/Movie-Recommender/knn_recommender.py", line 219, in make_recommendations
+    fav_movie, n_recommendations)
+  File "/root/project_files/Movie-Recommender/knn_recommender.py", line 186, in _inference
+    data[idx],
+  File "/usr/local/lib/python3.5/dist-packages/scipy/sparse/csr.py", line 335, in __getitem__
+    row = asindices(row)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/sparse/csr.py", line 246, in asindices
+    raise IndexError('invalid index')
+IndexError: invalid index
+217.165.62.134 - - [13/May/2019 05:46:12] "GET /Black%20Sheep%20%281996%29/ HTTP/1.1" 200 -
+217.165.62.134 - - [13/May/2019 05:46:13] "GET /favicon.ico/ HTTP/1.1" 500 -
