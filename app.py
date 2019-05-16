@@ -68,7 +68,6 @@ def is_logged_in(f):
 def movie_trailer(id):
     movie = db.get_movie_details(id)
     # video_id = get_video_id(movie['url'])
-    print(movie['trailer_url'])
     return render_template('trailer.html', movie=movie, user = str(session['email']))
 
 # Edit Movie Details
@@ -112,13 +111,10 @@ def edit(id):
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = get_file_name(file.filename)
-            print('filenamefilenamefilename', filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # return redirect(url_for('uploaded_file',
             #                         filename=filename))
 
-        print(title, genre, release_year, rating, description, trailer_url)
-        print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}\n filename: {}'.format(
             title, genre, release_year, rating, description, trailer_url, 'filename'))
         
         # Update the MSO in the database
@@ -143,7 +139,6 @@ def register():
     if request.method == 'POST':
         email = request.form.get('user_email')
         password = sha256_crypt.encrypt(str(request.form.get('user_password')))
-        print(email, password)
         # Create cursor
         cur = mysql.connection.cursor()
 
@@ -178,7 +173,13 @@ def login():
                 session['logged_in'] = True
                 session['email'] = email
 
-                return redirect(url_for('all'))
+                lw = db.get_last_watched(session['email'])
+                if lw == '':
+                    return redirect(url_for('all'))
+                else:
+                    return redirect(url_for('rec'))
+
+                
             else:
                 error = 'Invalid login'
                 return render_template('login.html', msg=error)
@@ -201,7 +202,6 @@ def a():
         # Get Form Fields
         email = request.form.get('user_email')
         password_candidate = request.form.get('user_password')
-        print(email, password_candidate)
         # # Get user by email
         password = db.user_psw(email)
 
@@ -282,8 +282,6 @@ def new_movie():
             # return redirect(url_for('uploaded_file',
             #                         filename=filename))
 
-        print('title: {}\n genre: {}\n release_year: {}\n rating: {}\n description: {}\n trailer_url: {}\n filename: {}'.format(
-            title, genre, release_year, rating, description, trailer_url, filename))
         
         sql = "INSERT INTO movies(title, genre, release_year, rating, description, trailer_url, thumbnail) VALUES(%s, %s, %s, %s, %s, %s, %s)"
         data = (title, genre, release_year, rating, description, trailer_url, filename)
@@ -299,7 +297,6 @@ def new_movie():
 @app.route('/delete/<string:id>/', methods=['GET', 'POST'])
 @is_logged_in
 def delete_movie(id):
-    print('DeleteDeleteDeleteDelete', id)
     db.delete_movie(id)
     return redirect(url_for('all'))
 
@@ -323,12 +320,11 @@ def rec():
     user = str(session['email'])
     all_movies = mvs
     
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     total = len(all_movies)
     pagination_movies = get_movies_m2(mvs, offset=offset, per_page=per_page)
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap4')
+    pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
+
     return render_template('rec.html', mvs=str(mvs), user=user, all_movies=pagination_movies, page=page, per_page=per_page, pagination=pagination,)
 
 

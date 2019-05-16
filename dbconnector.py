@@ -92,7 +92,6 @@ def get_rating(title):
     r = cur.fetchone()
     cur.close()
     cnx.close()
-    print(title, r)
     return r[0]
 
 # Returns last watched movie for a given user(email)
@@ -104,6 +103,5 @@ def get_last_watched(email):
     r = cur.fetchone()
     cur.close()
     cnx.close()
-    print(r)
     return r[0]
 
