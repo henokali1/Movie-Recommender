@@ -68,6 +68,10 @@ def is_logged_in(f):
 def movie_trailer(id):
     movie = db.get_movie_details(id)
     # video_id = get_video_id(movie['url'])
+<<<<<<< HEAD
+=======
+    print(movie['trailer_url'])
+>>>>>>> 4b51d44233ab5642158b40bb098b4338e530bcd6
     return render_template('trailer.html', movie=movie, user = str(session['email']))
 
 # Edit Movie Details
@@ -202,6 +206,10 @@ def a():
         # Get Form Fields
         email = request.form.get('user_email')
         password_candidate = request.form.get('user_password')
+<<<<<<< HEAD
+=======
+        print(email, password_candidate)
+>>>>>>> 4b51d44233ab5642158b40bb098b4338e530bcd6
         # # Get user by email
         password = db.user_psw(email)
 
