@@ -68,10 +68,6 @@ def is_logged_in(f):
 def movie_trailer(id):
     movie = db.get_movie_details(id)
     # video_id = get_video_id(movie['url'])
-<<<<<<< HEAD
-=======
-    print(movie['trailer_url'])
->>>>>>> 4b51d44233ab5642158b40bb098b4338e530bcd6
     return render_template('trailer.html', movie=movie, user = str(session['email']))
 
 # Edit Movie Details
@@ -118,8 +114,6 @@ def edit(id):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # return redirect(url_for('uploaded_file',
             #                         filename=filename))
-
-            title, genre, release_year, rating, description, trailer_url, 'filename'))
         
         # Update the MSO in the database
         sql = "UPDATE movies  SET title=%s, genre=%s, release_year=%s, rating=%s, description=%s, trailer_url=%s, thumbnail=%s  WHERE id=%s"
@@ -206,10 +200,6 @@ def a():
         # Get Form Fields
         email = request.form.get('user_email')
         password_candidate = request.form.get('user_password')
-<<<<<<< HEAD
-=======
-        print(email, password_candidate)
->>>>>>> 4b51d44233ab5642158b40bb098b4338e530bcd6
         # # Get user by email
         password = db.user_psw(email)
 
