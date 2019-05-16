@@ -12,7 +12,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Recommender</title>
+  <title>Recommended Movies</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@
         </div>
       </div>
     <section>
-    <h5 class="center">Most Watched Movies</h5> 
+    <h5 class="center">Recommended Movies</h5> 
 
     <main class="main-area">
         
@@ -71,10 +71,6 @@
               <div class="card-content">
                   <h2>{{movie.title|truncate(30)}}</h2>
                   <p>Rating: {{movie.rating}}</p>
-                  {% if user == 'admin@email.com' or user == 'u@e.c' %}
-                  <a href="/edit/{{movie.id}}/" class="btn-floating"><i class="material-icons green right">edit</i></a>
-                  <a href="/delete/{{movie.id}}/" class="btn-floating"><i class="material-icons red right">delete</i></a>
-                  {% endif %}
               </div><!-- .card-content -->
           </a>
         </article><!-- .card -->

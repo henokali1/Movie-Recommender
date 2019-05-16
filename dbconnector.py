@@ -37,6 +37,20 @@ def get_movie_details(id):
 	cnx.close()
 	return r[0]
 
+# Movie Details by Title
+def get_movie_details_t(title):
+    cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+    cur = cnx.cursor(dictionary=True)
+    cur.execute("SELECT * FROM movies WHERE title = %s", [title])
+    r = cur.fetchall()
+    cnx.commit()
+    cur.close()
+    cnx.close()
+    try:
+        return r[0]
+    except:
+        pass
+
 
 # Get user psw by email
 def user_psw(email):
@@ -68,6 +82,7 @@ def delete_movie(id):
     finally:
         cur.close()
         cnx.close()
+
 # Returns rating of a given movie title
 def get_rating(title):
     cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
@@ -79,3 +94,16 @@ def get_rating(title):
     cnx.close()
     print(title, r)
     return r[0]
+
+# Returns last watched movie for a given user(email)
+def get_last_watched(email):
+    cnx = mysql.connector.connect(user='root', password='waleflask', host='127.0.0.1', database='movie_rec')
+    cur = cnx.cursor()
+
+    cur.execute("SELECT last_watched FROM USERS WHERE email=%s", [email])
+    r = cur.fetchone()
+    cur.close()
+    cnx.close()
+    print(r)
+    return r[0]
+

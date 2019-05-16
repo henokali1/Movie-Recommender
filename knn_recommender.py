@@ -265,6 +265,24 @@ def get_movie_rec(current_moive):
     recommender.set_model_params(20, 'brute', 'cosine', -1)
     r = recommender.make_recommendations(current_moive, top_n)
     return r
+
+def get_movie_rec_m2(current_moive):
+    data_path = 'data/MovieLens'
+    movies_filename = 'movies.csv'
+    ratings_filename = 'ratings.csv'
+
+    top_n = 450
+    # initial recommender system
+    recommender = KnnRecommender(
+        'data/MovieLens/movies.csv',
+        'data/MovieLens/ratings.csv')
+    # set params
+    recommender.set_filter_params(50, 50)
+    recommender.set_model_params(20, 'brute', 'cosine', -1)
+    r = recommender.make_recommendations(current_moive, top_n)
+    return r
+
+
 if __name__ == '__main__':
     # get args
     # args = parse_args()

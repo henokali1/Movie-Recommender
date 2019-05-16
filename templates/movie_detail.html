@@ -78,7 +78,7 @@
           		<a href="/all">All Movies</a>
           	</li>
               <li>
-                  <a href="logout">Logout</a>
+                  <a href="/logout">Logout</a>
                 </li>
           </ul>
 
@@ -142,7 +142,7 @@
 
       {% for movie in r_movs %}
        <article class="card">
-          <a href="/{{movie.title}}">
+          <a href="/mv/{{movie.title}}">
               <picture class="thumbnail">
                   <!-- <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-02.jpg" alt="Playing Jenga with pool cues"> -->
                   <img class="responsive-img" src="{{ url_for('static', filename='img/generic.png') }}" width="421px" height="442px" />
@@ -150,10 +150,6 @@
               <div class="card-content">
                   <h2>{{movie.title|truncate(30)}}</h2>
                   <p>Rating: {{movie.rating}}</p>
-                  {% if user == 'admin@email.com' or user == 'u@e.c' %}
-                  <a href="/edit/{{movie.id}}/" class="btn-floating"><i class="material-icons green right">edit</i></a>
-                  <a href="/delete/{{movie.id}}/" class="btn-floating"><i class="material-icons red right">delete</i></a>
-                  {% endif %}
               </div><!-- .card-content -->
           </a>
         </article><!-- .card -->

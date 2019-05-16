@@ -69,17 +69,24 @@ def movie_trailer(id):
     movie = db.get_movie_details(id)
     # video_id = get_video_id(movie['url'])
     print(movie['trailer_url'])
-    return render_template('trailer.html', movie=movie)
+    return render_template('trailer.html', movie=movie, user = str(session['email']))
 
 # Edit Movie Details
-@app.route('/<string:title>/', methods=['GET', 'POST'])
+@app.route('/mv/<string:title>/', methods=['GET', 'POST'])
 @is_logged_in
 def movie_detail(title):
+	# Update the MSO in the database
+	sql = "UPDATE USERS  SET last_watched=%s  WHERE email=%s"
+	data = (title, session['email']) 
+
+	db.save(sql, data)
 	r = kr.get_movie_rec(str(title))
 	r_movs = []
 	for i in r:
 		r_movs.append({'title': i, 'rating': db.get_rating(i)})
 	return render_template('movie_detail.html', title=title, movie_recommendation=r, r_movs=r_movs, user = str(session['email']))
+
+
 
 # Edit Movie Details
 @app.route('/edit/<string:id>/', methods=['GET', 'POST'])
@@ -194,7 +201,8 @@ def a():
         # Get Form Fields
         email = request.form.get('user_email')
         password_candidate = request.form.get('user_password')
-        # Get user by email
+        print(email, password_candidate)
+        # # Get user by email
         password = db.user_psw(email)
 
         if len(password) > 0:
@@ -224,6 +232,10 @@ def most_watched():
 
 def get_movies(offset=0, per_page=22):
 	movies = db.get_all_movies()
+	return movies[offset: offset + per_page]
+
+def get_movies_m2(movies, offset=0, per_page=22):
+	movies = movies
 	return movies[offset: offset + per_page]
 
 # All Movies
@@ -291,6 +303,36 @@ def delete_movie(id):
     db.delete_movie(id)
     return redirect(url_for('all'))
 
+
+@app.route('/rec/', methods=['GET', 'POST'])
+@is_logged_in
+def rec():
+    lw = db.get_last_watched(session['email'])
+    if lw == '':
+        return 'No Data'
+    else:
+        r = kr.get_movie_rec_m2(lw)
+        mvs = []
+        for i in r:
+            detail = db.get_movie_details_t(i)
+            if detail == None:
+                pass
+            else:
+                mvs.append(detail)
+
+    user = str(session['email'])
+    all_movies = mvs
+    
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    total = len(all_movies)
+    pagination_movies = get_movies_m2(mvs, offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap4')
+    return render_template('rec.html', mvs=str(mvs), user=user, all_movies=pagination_movies, page=page, per_page=per_page, pagination=pagination,)
+
+
+        #return str(mvs)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
