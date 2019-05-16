@@ -13468,3 +13468,69 @@ SyntaxError: invalid syntax
 217.165.62.134 - - [16/May/2019 13:06:36] "GET /login HTTP/1.1" 200 -
 217.165.62.134 - - [16/May/2019 13:06:40] "POST /login HTTP/1.1" 302 -
 217.165.62.134 - - [16/May/2019 13:06:47] "GET /rec/ HTTP/1.1" 200 -
+ * Detected change in '/root/project_files/Movie-Recommender/knn_recommender.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 201-057-642
+217.165.62.134 - - [16/May/2019 13:09:00] "GET /logout HTTP/1.1" 302 -
+217.165.62.134 - - [16/May/2019 13:09:00] "GET /login HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:05] "POST /login HTTP/1.1" 302 -
+/usr/local/lib/python3.5/dist-packages/sklearn/neighbors/base.py:421: UserWarning: Loky-backed parallel loops cannot be nested below threads, setting n_jobs=1
+  n_jobs = effective_n_jobs(self.n_jobs)
+217.165.62.134 - - [16/May/2019 13:09:06] "GET /rec/ HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:19] "GET /all HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:53] "GET /mv/Horrible%20Bosses%202%20(2014) HTTP/1.1" 308 -
+217.165.62.134 - - [16/May/2019 13:09:54] "GET /mv/Horrible%20Bosses%202%20%282014%29/ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/scipy/sparse/csr.py", line 244, in asindices
+    x = x.astype(idx_dtype)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.5/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/project_files/Movie-Recommender/app.py", line 59, in wrap
+    return f(*args, **kwargs)
+  File "/root/project_files/Movie-Recommender/app.py", line 82, in movie_detail
+    r = kr.get_movie_rec(str(title))
+  File "/root/project_files/Movie-Recommender/knn_recommender.py", line 266, in get_movie_rec
+    r = recommender.make_recommendations(current_moive, top_n)
+  File "/root/project_files/Movie-Recommender/knn_recommender.py", line 219, in make_recommendations
+    fav_movie, n_recommendations)
+  File "/root/project_files/Movie-Recommender/knn_recommender.py", line 186, in _inference
+    data[idx],
+  File "/usr/local/lib/python3.5/dist-packages/scipy/sparse/csr.py", line 335, in __getitem__
+    row = asindices(row)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/sparse/csr.py", line 246, in asindices
+    raise IndexError('invalid index')
+IndexError: invalid index
+217.165.62.134 - - [16/May/2019 13:09:54] "GET /mv/Horrible%20Bosses%202%20%282014%29/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:54] "GET /mv/Horrible%20Bosses%202%20%282014%29/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:54] "GET /mv/Horrible%20Bosses%202%20%282014%29/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:56] "GET /mv/Horrible%20Bosses%202%20%282014%29/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:56] "GET /mv/Horrible%20Bosses%202%20%282014%29/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:57] "GET /mv/Horrible%20Bosses%202%20%282014%29/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:09:58] "GET /mv/42%20Up%20(1998) HTTP/1.1" 308 -
+217.165.62.134 - - [16/May/2019 13:09:59] "GET /mv/42%20Up%20%281998%29/ HTTP/1.1" 200 -
+217.165.62.134 - - [16/May/2019 13:10:03] "GET /mv/Ransom%20(1996) HTTP/1.1" 308 -
+217.165.62.134 - - [16/May/2019 13:10:03] "GET /mv/Ransom%20%281996%29/ HTTP/1.1" 200 -

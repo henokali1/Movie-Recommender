@@ -271,7 +271,7 @@ def get_movie_rec_m2(current_moive):
     movies_filename = 'movies.csv'
     ratings_filename = 'ratings.csv'
 
-    top_n = 450
+    top_n = 50
     # initial recommender system
     recommender = KnnRecommender(
         'data/MovieLens/movies.csv',
