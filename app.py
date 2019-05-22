@@ -328,6 +328,12 @@ def rec():
 
         #return str(mvs)
 
+@app.route('/pd/<string:d>/', methods=['GET', 'POST'])
+def pd(d):
+    print('incoming: ', d)
+    return 'rd: {}'.format(d)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
     # app.run()

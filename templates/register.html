@@ -41,6 +41,21 @@
                         <h3 class="center">Register</h3>
                         <form method="POST" enctype = "multipart/form-data">
                             <br>
+                            <div class="row">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">person</i>
+                                        <input id="firstname" type="text" name="firstname" required>
+                                        <label for="firstname">First Name</label>
+                                    </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">person</i>
+                                        <input id="lastname" type="text" name="lastname" required>
+                                        <label for="lastname">Last Name</label>
+                                    </div>
+                            </div>
                             <!-- Email -->
                             <div class="row">
                                     <div class="input-field">
@@ -59,6 +74,44 @@
                                         <label for="user_password">Password</label>
                                     </div>
                             </div>
+
+                            <div class="row">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">format_color_text</i>
+                                        <input id="age" type="number" name="age" required>
+                                        <label for="age">Age</label>
+                                    </div>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="input-field">
+                                    <i class="material-icons prefix">wc</i>
+                                    <select name="gender">
+                                      <option value="" disabled selected>Select Gender</option>
+                                      <option value="female">Female</option>
+                                      <option value="male">Male</option>
+                                    </select>
+                                    <label>Gender</label>
+                            </div>
+
+                            <div class="input-field">
+                                <i class="material-icons prefix">playlist_add_check</i>
+                                    <select name="access" multiple>
+                                        <option value="" disabled selected>Favourite Genres</option>
+                                        <option value="Action">Action</option>
+                                        <option value="Adventure">Adventure</option>
+                                        <option value="Animation">Animation</option>
+                                        <option value="Comedy">Comedy</option>
+                                        <option value="Crime">Crime</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Fantasy">Fantasy</option>
+                                        <option value="Mystery">Mystery</option>
+                                        <option value="Political">Political</option>
+                                        <option value="Romance">Romance</option>
+                                        <option value="Science fiction">Science fiction</option>
+                                        <option value="Thriller">Thriller</option>
+                                    </select>
+                                </div>
 
                             <!-- Profile Picture -->
                             <!-- <div class="row">
