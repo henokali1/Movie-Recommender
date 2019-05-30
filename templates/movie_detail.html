@@ -144,13 +144,13 @@
             <section class="cards">
 
       {% for movie in r_movs %}
-       <article class="card">
+       <article class="card z-depth-5">
           <a href="/mv/{{movie.title}}">
               <picture class="thumbnail">
                   <!-- <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-02.jpg" alt="Playing Jenga with pool cues"> -->
                   <img class="responsive-img" src="{{ url_for('static', filename='img/generic.png') }}" width="421px" height="442px" />
               </picture>
-              <div class="card-content">
+              <div class="card-content z-depth-5">
                   <h2>{{movie.title|truncate(30)}}</h2>
                   <p>Rating: {{movie.rating}}</p>
               </div><!-- .card-content -->

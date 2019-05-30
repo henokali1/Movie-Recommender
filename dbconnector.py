@@ -105,3 +105,18 @@ def get_last_watched(email):
     cnx.close()
     return r[0]
 
+def changeTh():
+    cntr = 0
+    all_mvs = get_all_movies()
+    for i in all_mvs:
+        print(cntr)
+        cntr+=1
+        try:
+            # Update the MSO in the database
+            sql = "UPDATE movies  SET thumbnail=%s  WHERE title=%s"
+            data = ('generic.png', i['title'])
+            save(sql, data)
+        except:
+            print('Err')
+    print(all_mvs[0]['title'])
+

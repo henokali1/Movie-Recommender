@@ -43,7 +43,7 @@
             <br>
 
            <div class="container">
-                <div class="card-panel" style="padding-left: 5%; padding-right: 5%; margin-left: auto; margin-right: auto;">
+                <div class="card-panel z-depth-5" style="padding-left: 5%; padding-right: 5%; margin-left: auto; margin-right: auto;">
                         <h3 class="center">Edit - {{movie.title}}</h3>
                         <form method="POST" enctype = "multipart/form-data">
                             <br>
@@ -51,7 +51,7 @@
                             <div class="row">
                                     <div class="input-field">
                                             <i class="material-icons prefix">title</i>
-                                        <input id="movie_title" type="text" name="movie_title" value="{{movie.title}}" required>
+                                        <input id="movie_title" type="text" name="movie_title" value="{{movie.title}}">
                                         <label for="movie_title">Title</label>
                                     </div>
                             </div>
@@ -62,7 +62,7 @@
                                         <div class="row">
                                                 <div class="input-field">
                                                     <i class="material-icons prefix">merge_type</i>
-                                                    <input id="genre" type="text" name="genre" value="{{movie.genre}}" required>
+                                                    <input id="genre" type="text" name="genre" value="{{movie.genre}}">
                                                     <label for="genre">Genre</label>
                                                 </div>
                                         </div>
@@ -73,7 +73,7 @@
                                         <div class="row">
                                                 <div class="input-field">
                                                     <i class="material-icons prefix">date_range</i>
-                                                    <input id="release_year" type="number" name="release_year" value="{{movie.release_year}}" required>
+                                                    <input id="release_year" type="number" name="release_year" value="{{movie.release_year}}">
                                                     <label for="release_year">Release Year</label>
                                                 </div>
                                         </div>
@@ -85,7 +85,7 @@
                                         <div class="row">
                                                 <div class="input-field">
                                                     <i class="material-icons prefix">star</i>
-                                                    <input id="rating" type="number" step="0.01" name="rating" value="{{movie.rating}}" required>
+                                                    <input id="rating" type="number" step="0.01" name="rating" value="{{movie.rating}}">
                                                     <label for="rating">Rating</label>
                                                 </div>
                                         </div>
@@ -107,7 +107,7 @@
                                     <div class="row">
                                             <div class="input-field">
                                                 <i class="material-icons prefix">link</i>
-                                                <input id="trailer_url" type="text" name="trailer_url" value="{{movie.trailer_url}}" required>
+                                                <input id="trailer_url" type="text" name="trailer_url" value="{{movie.trailer_url}}">
                                                 <label for="trailer_url">Trailer URL (YouTube URL)</label>
                                             </div>
                                     </div>

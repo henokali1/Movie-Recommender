@@ -70,7 +70,6 @@ def movie_trailer(id):
     # video_id = get_video_id(movie['url'])
     return render_template('trailer.html', movie=movie, user = str(session['email']))
 
-# Edit Movie Details
 @app.route('/mv/<string:title>/', methods=['GET', 'POST'])
 @is_logged_in
 def movie_detail(title):
@@ -120,6 +119,7 @@ def edit(id):
         data = (title, genre, release_year, rating, description, trailer_url, filename, int(id)) 
 
         db.save(sql, data)
+        return redirect(url_for('all'))
 
 
     movie = db.get_movie_details(id)
@@ -242,6 +242,7 @@ def get_movies_m2(movies, offset=0, per_page=22):
 def all():
     user = str(session['email'])
     all_movies = db.get_all_movies()
+    # db.changeTh()
     
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
