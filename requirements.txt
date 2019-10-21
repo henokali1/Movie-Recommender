@@ -89,7 +89,7 @@ unattended-upgrades==0.1
 urllib3==1.13.1
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==0.15.2
+Werkzeug==0.15.3
 wrapt==1.11.1
 WTForms==2.2.1
 uWSGI==2.0.17.1
