@@ -35,7 +35,7 @@ itsdangerous==1.1.0
 jedi==0.13.3
 jeepney==0.4
 Jinja2==2.10.1
-joblib==0.13.2
+joblib==1.2.0
 jsonpatch==1.10
 jsonpointer==1.9
 jsonschema==3.0.1
